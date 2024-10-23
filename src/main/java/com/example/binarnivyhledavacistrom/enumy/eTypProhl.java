@@ -1,5 +1,5 @@
 package com.example.binarnivyhledavacistrom.enumy;
 
 public enum eTypProhl {
-    DOSIRKY,DOHLOUBKY;
+    DO_SIRKY,DO_HLOUBKY;
 }
