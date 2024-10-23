@@ -1,4 +1,4 @@
-package com.example.binarnivyhledavacistrom.AbstrDoubleList;
+package com.example.binarnivyhledavacistrom.abstrDoubleList;
 
 import java.util.Iterator;
 
