@@ -33,30 +33,39 @@ class AbstrTableTest {
     @Test
     void testVloz01() {
         IAbstrTable<String, TestClass> strom = new AbstrTable<>();
-        strom.vloz("T3", T3);
-        strom.vloz("T5", T5);
-        strom.vloz("T1", T1);
-        strom.vloz("T2", T2);
-        strom.vloz("T4", T4);
-        strom.vloz("T9", T9);
-        strom.vloz("T1", T1);
-        strom.vloz("T6", T6);
-        strom.vloz("T8", T8);
-        strom.vloz("T7", T7);
+        try {
+            strom.vloz("T3", T3);
+            strom.vloz("T5", T5);
+            strom.vloz("T1", T1);
+            strom.vloz("T2", T2);
+            strom.vloz("T4", T4);
+            strom.vloz("T9", T9);
+            strom.vloz("T1", T1);
+            strom.vloz("T6", T6);
+            strom.vloz("T8", T8);
+            strom.vloz("T7", T7);
+        } catch (AbstrTableException e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     @Test
     void testNajdi01() {
         IAbstrTable<String, TestClass> strom = new AbstrTable<>();
-        strom.vloz("T3", T3);
-        strom.vloz("T5", T5);
-        strom.vloz("T1", T1);
-        strom.vloz("T2", T2);
-        strom.vloz("T4", T4);
-        strom.vloz("T9", T9);
-        strom.vloz("T6", T6);
-        strom.vloz("T8", T8);
-        strom.vloz("T7", T7);
-        assertEquals(strom.najdi("T9"), T9);
+        try {
+
+            strom.vloz("T3", T3);
+            strom.vloz("T5", T5);
+            strom.vloz("T1", T1);
+            strom.vloz("T2", T2);
+            strom.vloz("T4", T4);
+            strom.vloz("T9", T9);
+            strom.vloz("T6", T6);
+            strom.vloz("T8", T8);
+            strom.vloz("T7", T7);
+            assertEquals(strom.najdi("T9"), T9);
+        } catch (AbstrTableException e) {
+            System.err.println(e.getMessage());
+        }
     }
 }

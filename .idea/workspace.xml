@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="pozměnění názvů enumů">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTableException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTableTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/IAbstrTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/IAbstrTable.java" afterDir="false" />
+    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="přidání vyhazování chyb, testování a naimplementování většiny metod v AbstrTable">
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTableTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +123,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729697638290</updated>
-      <workItem from="1729697639485" duration="10141000" />
+      <workItem from="1729697639485" duration="10248000" />
     </task>
     <task id="LOCAL-00001" summary="inicializace">
       <option name="closed" value="true" />
@@ -201,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729710737879</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="přidání vyhazování chyb, testování a naimplementování většiny metod v AbstrTable">
+      <option name="closed" value="true" />
+      <created>1729713917273</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1729713917273</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,6 +220,7 @@
     <MESSAGE value="vypracování lifo a fifo" />
     <MESSAGE value="vypracování comparatoru" />
     <MESSAGE value="pozměnění názvů enumů" />
-    <option name="LAST_COMMIT_MESSAGE" value="pozměnění názvů enumů" />
+    <MESSAGE value="přidání vyhazování chyb, testování a naimplementování většiny metod v AbstrTable" />
+    <option name="LAST_COMMIT_MESSAGE" value="přidání vyhazování chyb, testování a naimplementování většiny metod v AbstrTable" />
   </component>
 </project>
