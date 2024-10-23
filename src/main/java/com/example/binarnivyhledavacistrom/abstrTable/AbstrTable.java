@@ -11,8 +11,8 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
 
     private static class Prvek<K, V> {
         private Prvek<K, V> rodic;
-        private K key;
-        private V value;
+        private final K key;
+        private final V value;
         private Prvek<K, V> synL;
         private Prvek<K, V> synP;
 
@@ -35,37 +35,90 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
         return koren == null;
     }
 
+    //porovnání, jestli K (název obce) je menší, nebo větší, než aktuální a takhle traverzovat dokud se nenajde,
+    // nebo dokud nebude slepá ulice
     @Override
-    public V najdi(K key) {
-        //porovnání, jestli K (název obce) je menší, nebo větší, než aktuální a takhle traverzovat dokud se nenajde,
-        // nebo dokud nebude slepá ulice
-        return null;
+    public V najdi(K key) throws AbstrTableException {
+        if (jePrazdny()) {
+            throw new AbstrTableException("prázdné pole");
+        }
+        aktualni = koren;
+        while (true) {
+            int comparator = compareTo(key);
+            if (comparator < 0) {
+
+                if (aktualni.synP == null) {
+                    throw new AbstrTableException("prvek " + key + " nenalezen");
+                } else {
+                    aktualni = aktualni.synP;
+                }
+            } else if (comparator > 0) {
+
+                if (aktualni.synL == null) {
+                    throw new AbstrTableException("prvek " + key + " nenalezen");
+                } else {
+                    aktualni = aktualni.synL;
+                }
+            } else {
+
+                return aktualni.value;
+            }
+        }
     }
 
+    //travertuje po listu a hledá velné místo, kam by seděl prvek. když najde stejný prvek,
+    //vyhodí chybu, že už existuje
     @Override
-    public void vloz(K key, V value) {
-        //travertuje po listu a hledá velné místo, kam by seděl prvek. když najde stejný prvek,
-        // vyhodí chybu, že už existuje
-
+    public void vloz(K key, V value) throws AbstrTableException {
         if (jePrazdny()) {
             koren = new Prvek<>(null, key, value, null, null);
         } else {
             Prvek<K, V> novyPrvek = new Prvek<>(null, key, value, null, null);
             aktualni = koren;
-            if (compareTo(novyPrvek.key) == 0) {
 
+            while (true) {
+                int comparator = compareTo(novyPrvek.key);
+                if (comparator < 0) {
+
+                    if (aktualni.synP == null) {
+                        aktualni.synP = novyPrvek;
+                        novyPrvek.rodic = aktualni;
+                        return;
+                    } else {
+                        aktualni = aktualni.synP;
+                    }
+                } else if (comparator > 0) {
+
+                    if (aktualni.synL == null) {
+                        aktualni.synL = novyPrvek;
+                        novyPrvek.rodic = aktualni;
+                        return;
+                    } else {
+                        aktualni = aktualni.synL;
+                    }
+                } else {
+                    throw new AbstrTableException("prvek " + key.toString() + " již existuje v seznamu!!");
+                }
             }
         }
     }
 
     @Override
-    public V odeber(K key) {
+    public V odeber(K key) throws AbstrTableException {
+        //pro nastavení aktuálního na danou pozici
+        //TODO
+        try {
+            najdi(key);
+        } catch (AbstrTableException e) {
+            throw new AbstrTableException( e.getMessage());
+        }
         return null;
     }
 
     @Override
     public Iterator<V> vytvorIterator(eTypProhl typ) {
-        return new Iterator<V>() {
+        //TODO
+        return new Iterator<>() {
             @Override
             public boolean hasNext() {
                 return false;
@@ -78,6 +131,7 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
         };
     }
 
+    //prvek vetsi = -1, prvek mensi = 1, prvek stejny = 0
     @Override
     public int compareTo(K prvek) {
 

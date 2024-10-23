@@ -7,8 +7,8 @@ import java.util.Iterator;
 public interface IAbstrTable<K,V> extends Comparable<K> {
     void zrus();
     boolean jePrazdny();
-    V najdi(K key);
-    void vloz(K key, V value);
-    V odeber(K key);
+    V najdi(K key) throws AbstrTableException;
+    void vloz(K key, V value) throws AbstrTableException;
+    V odeber(K key) throws AbstrTableException;
     Iterator<V> vytvorIterator(eTypProhl typ);
 }
