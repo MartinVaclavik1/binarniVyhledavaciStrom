@@ -1,6 +1,6 @@
-package com.example.binarnivyhledavacistrom;
+package com.example.binarnivyhledavacistrom.FIFO;
 
-public class AbstrFIFO<T> implements IAbstrFIFO<T>{
+public class AbstrFIFO<T> implements IAbstrFIFO<T> {
     @Override
     public void zrus() {
 

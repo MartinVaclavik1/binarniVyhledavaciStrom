@@ -1,4 +1,4 @@
-package com.example.binarnivyhledavacistrom;
+package com.example.binarnivyhledavacistrom.LIFO;
 
 public interface IAbstrLIFO<T> {
     void zrus();

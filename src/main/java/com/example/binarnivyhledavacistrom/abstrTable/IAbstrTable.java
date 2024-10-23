@@ -1,4 +1,6 @@
-package com.example.binarnivyhledavacistrom;
+package com.example.binarnivyhledavacistrom.abstrTable;
+
+import com.example.binarnivyhledavacistrom.enumy.eTypProhl;
 
 import java.util.Iterator;
 

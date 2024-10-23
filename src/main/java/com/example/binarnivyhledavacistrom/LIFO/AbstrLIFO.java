@@ -1,4 +1,6 @@
-package com.example.binarnivyhledavacistrom;
+package com.example.binarnivyhledavacistrom.LIFO;
+
+import com.example.binarnivyhledavacistrom.LIFO.IAbstrLIFO;
 
 public class AbstrLIFO<T> implements IAbstrLIFO<T> {
     @Override

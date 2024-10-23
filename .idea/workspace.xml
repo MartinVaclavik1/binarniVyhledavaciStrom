@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="vytvoření prvku">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/AbstrFIFO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/AbstrLIFO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/IAbstrFIFO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/IAbstrLIFO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="vytvoření lifo/fifo s interface" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,7 +64,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729697638290</updated>
-      <workItem from="1729697639485" duration="2282000" />
+      <workItem from="1729697639485" duration="2351000" />
     </task>
     <task id="LOCAL-00001" summary="inicializace">
       <option name="closed" value="true" />
@@ -88,7 +82,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729699358149</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="vytvoření lifo/fifo s interface">
+      <option name="closed" value="true" />
+      <created>1729699970644</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1729699970644</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -97,6 +99,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="inicializace" />
     <MESSAGE value="vytvoření prvku" />
-    <option name="LAST_COMMIT_MESSAGE" value="vytvoření prvku" />
+    <MESSAGE value="vytvoření lifo/fifo s interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="vytvoření lifo/fifo s interface" />
   </component>
 </project>
