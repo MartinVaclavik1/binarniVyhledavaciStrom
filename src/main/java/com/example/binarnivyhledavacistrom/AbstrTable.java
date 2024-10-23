@@ -2,15 +2,34 @@ package com.example.binarnivyhledavacistrom;
 
 import java.util.Iterator;
 
-public class AbstrTable<K,V> implements IAbstrTable<K,V>{
+public class AbstrTable<K, V> implements IAbstrTable<K, V> {
+
+    private Prvek<K, V> koren;
+
+    private static class Prvek<K, V> {
+        private Prvek rodic;
+        private K key;
+        private V value;
+        private Prvek synL;
+        private Prvek synP;
+
+        public Prvek(Prvek<K, V> rodic, K key, V value, Prvek<K, V> synL, Prvek<K, V> synP) {
+            this.rodic = rodic;
+            this.key = key;
+            this.value = value;
+            this.synL = synL;
+            this.synP = synP;
+        }
+    }
+
     @Override
     public void zrus() {
-
+        koren = null;
     }
 
     @Override
     public boolean jePrazdny() {
-        return false;
+        return koren == null;
     }
 
     @Override
@@ -30,7 +49,17 @@ public class AbstrTable<K,V> implements IAbstrTable<K,V>{
 
     @Override
     public Iterator<V> vytvorIterator(eTypProhl typ) {
-        return null;
+        return new Iterator<V>() {
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
+
+            @Override
+            public V next() {
+                return null;
+            }
+        };
     }
 
     @Override
