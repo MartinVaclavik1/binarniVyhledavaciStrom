@@ -3,8 +3,8 @@ module com.example.binarnivyhledavacistrom {
     requires javafx.fxml;
 
 
-    opens com.example.binarnivyhledavacistrom to javafx.fxml;
-    exports com.example.binarnivyhledavacistrom;
+    opens com.example.binarnivyhledavacistrom.abstrDoubleList to javafx.fxml;
+    exports com.example.binarnivyhledavacistrom.abstrDoubleList;
     exports com.example.binarnivyhledavacistrom.FIFO;
     opens com.example.binarnivyhledavacistrom.FIFO to javafx.fxml;
     exports com.example.binarnivyhledavacistrom.LIFO;

@@ -9,11 +9,11 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
     private Prvek<K, V> koren;
 
     private static class Prvek<K, V> {
-        private Prvek rodic;
+        private Prvek<K,V> rodic;
         private K key;
         private V value;
-        private Prvek synL;
-        private Prvek synP;
+        private Prvek<K,V> synL;
+        private Prvek<K,V> synP;
 
         public Prvek(Prvek<K, V> rodic, K key, V value, Prvek<K, V> synL, Prvek<K, V> synP) {
             this.rodic = rodic;

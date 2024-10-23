@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="vytvoření lifo/fifo s interface" />
+    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="přeskupení do balíčků + překopírování AbstrDoubleList">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/AbstrDoubleList/AbstrDoubleList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrDoubleList/AbstrDoubleList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/AbstrDoubleList/AbstrDoubleListException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrDoubleList/AbstrDoubleListException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/AbstrDoubleList/IAbstrDoubleList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrDoubleList/IAbstrDoubleList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/FIFO/AbstrFIFO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/FIFO/AbstrFIFO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/LIFO/AbstrLIFO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/LIFO/AbstrLIFO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,6 +57,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/admin/OneDrive - Univerzita Pardubice/Dokumenty/NetBeansProjects/binarniVyhledavaciStrom/src/main/java/com/example/binarnivyhledavacistrom",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -56,6 +66,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\OneDrive - Univerzita Pardubice\Dokumenty\NetBeansProjects\binarniVyhledavaciStrom\src\main\java\com\example\binarnivyhledavacistrom" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -64,7 +79,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729697638290</updated>
-      <workItem from="1729697639485" duration="2351000" />
+      <workItem from="1729697639485" duration="4138000" />
     </task>
     <task id="LOCAL-00001" summary="inicializace">
       <option name="closed" value="true" />
@@ -90,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729699970644</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="přeskupení do balíčků + překopírování AbstrDoubleList">
+      <option name="closed" value="true" />
+      <created>1729700215402</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1729700215402</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +123,7 @@
     <MESSAGE value="inicializace" />
     <MESSAGE value="vytvoření prvku" />
     <MESSAGE value="vytvoření lifo/fifo s interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="vytvoření lifo/fifo s interface" />
+    <MESSAGE value="přeskupení do balíčků + překopírování AbstrDoubleList" />
+    <option name="LAST_COMMIT_MESSAGE" value="přeskupení do balíčků + překopírování AbstrDoubleList" />
   </component>
 </project>
