@@ -1,5 +1,6 @@
 package com.example.binarnivyhledavacistrom.FIFO;
 
+import com.example.binarnivyhledavacistrom.abstrDoubleList.AbstrDoubleList;
 import com.example.binarnivyhledavacistrom.abstrDoubleList.AbstrDoubleListException;
 import com.example.binarnivyhledavacistrom.abstrDoubleList.IAbstrDoubleList;
 
@@ -7,8 +8,8 @@ public class AbstrFIFO<T> implements IAbstrFIFO<T> {
 
     IAbstrDoubleList<T> list;
 
-    public AbstrFIFO(IAbstrDoubleList<T> list) {
-        this.list = list;
+    public AbstrFIFO() {
+        this.list = new AbstrDoubleList<>();
     }
 
     @Override

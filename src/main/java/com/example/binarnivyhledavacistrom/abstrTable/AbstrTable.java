@@ -1,13 +1,19 @@
 package com.example.binarnivyhledavacistrom.abstrTable;
 
+import com.example.binarnivyhledavacistrom.FIFO.AbstrFIFO;
+import com.example.binarnivyhledavacistrom.FIFO.IAbstrFIFO;
+import com.example.binarnivyhledavacistrom.LIFO.AbstrLIFO;
+import com.example.binarnivyhledavacistrom.LIFO.IAbstrLIFO;
 import com.example.binarnivyhledavacistrom.enumy.eTypProhl;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class AbstrTable<K, V> implements IAbstrTable<K, V> {
 
     private Prvek<K, V> koren;
     private Prvek<K, V> aktualni;
+    private int pocet = 0;
 
     private static class Prvek<K, V> {
         private Prvek<K, V> rodic;
@@ -60,7 +66,6 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
                     aktualni = aktualni.synL;
                 }
             } else {
-
                 return aktualni.value;
             }
         }
@@ -83,6 +88,7 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
                     if (aktualni.synP == null) {
                         aktualni.synP = novyPrvek;
                         novyPrvek.rodic = aktualni;
+                        pocet++;
                         return;
                     } else {
                         aktualni = aktualni.synP;
@@ -92,6 +98,7 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
                     if (aktualni.synL == null) {
                         aktualni.synL = novyPrvek;
                         novyPrvek.rodic = aktualni;
+                        pocet++;
                         return;
                     } else {
                         aktualni = aktualni.synL;
@@ -103,6 +110,9 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
         }
     }
 
+    //najde prvek metodou najdi. tam zůstane nastavený aktuální. z aktuálního vezme V do proměnné.
+    //odebere se prvek a jestli má potomky, tak se najde prvek, který je nejvíce podobný odebranému
+    //a ten se nastaví místo odebraného a rozředí se mu prvky dále ve struktuře
     @Override
     public V odeber(K key) throws AbstrTableException {
         //pro nastavení aktuálního na danou pozici
@@ -110,23 +120,81 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
         try {
             najdi(key);
         } catch (AbstrTableException e) {
-            throw new AbstrTableException( e.getMessage());
+            throw new AbstrTableException(e.getMessage());
         }
-        return null;
+        V value = aktualni.value;
+        K odebrany = aktualni.key;
+
+        //když má prvek potomky
+        if (aktualni.synL != null || aktualni.synP != null) {
+
+
+            //když prvek nemá žádné potomky
+        } else {
+            //když prvek není kořenový prvek, tak se odebere link z rodiče na něj
+            if (aktualni.rodic != null) {
+                if (aktualni.rodic.synL == aktualni) {
+                    aktualni.rodic.synL = null;
+                } else if (aktualni.rodic.synP == aktualni) {
+                    aktualni.rodic.synP = null;
+                }
+            }
+            //odebrání linku z aktuálního na rodiče
+            aktualni.rodic = null;
+        }
+        pocet--;
+        return value;
     }
 
     @Override
     public Iterator<V> vytvorIterator(eTypProhl typ) {
         //TODO
         return new Iterator<>() {
+            final IAbstrFIFO<Prvek<K, V>> fifo = new AbstrFIFO<>();
+            final IAbstrLIFO<Prvek<K, V>> lifo = new AbstrLIFO<>();
+            int zobrazenyPocet = 0;
+
             @Override
             public boolean hasNext() {
-                return false;
+                return zobrazenyPocet <= pocet && !jePrazdny();
             }
 
             @Override
             public V next() {
-                return null;
+                V odebrany = null;
+                if (hasNext()) {
+
+                    if (zobrazenyPocet == 0) {
+                        fifo.vloz(koren);
+                        lifo.vloz(koren);
+                    }
+
+                    switch (typ) {
+                        case DO_SIRKY -> {
+                            Prvek<K, V> odebranyPrvek = fifo.odeber();
+
+                            if (odebranyPrvek.synL != null) {
+                                fifo.vloz(odebranyPrvek.synL);
+                            }
+                            if (odebranyPrvek.synP != null) {
+                                fifo.vloz(odebranyPrvek.synP);
+                            }
+
+                            odebrany = odebranyPrvek.value;
+                        }
+                        case DO_HLOUBKY -> {
+
+
+
+                            Prvek<K, V> odebranyPrvek = lifo.odeber();
+                            odebrany = odebranyPrvek.value;
+                        }
+                    }
+                } else {
+                    throw new NoSuchElementException();
+                }
+                zobrazenyPocet++;
+                return odebrany;
             }
         };
     }
@@ -152,7 +220,6 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
                 return vetsi;
             }
         }
-
         return Integer.compare(prvekChar.length, aktualniChar.length);
     }
 }

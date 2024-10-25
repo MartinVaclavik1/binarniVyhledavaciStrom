@@ -1,14 +1,16 @@
 package com.example.binarnivyhledavacistrom.LIFO;
 
+import com.example.binarnivyhledavacistrom.abstrDoubleList.AbstrDoubleList;
 import com.example.binarnivyhledavacistrom.abstrDoubleList.AbstrDoubleListException;
 import com.example.binarnivyhledavacistrom.abstrDoubleList.IAbstrDoubleList;
 
 public class AbstrLIFO<T> implements IAbstrLIFO<T> {
     IAbstrDoubleList<T> list;
 
-    public AbstrLIFO(IAbstrDoubleList<T> list) {
-        this.list = list;
+    public AbstrLIFO() {
+        this.list = new AbstrDoubleList<>();
     }
+
 
     @Override
     public void zrus() {
