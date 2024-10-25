@@ -148,7 +148,6 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
 
     @Override
     public Iterator<V> vytvorIterator(eTypProhl typ) {
-        //TODO
         return new Iterator<>() {
             final IAbstrFIFO<Prvek<K, V>> fifo = new AbstrFIFO<>();
             final IAbstrLIFO<Prvek<K, V>> lifo = new AbstrLIFO<>();
