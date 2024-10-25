@@ -127,7 +127,7 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
 
         //když má prvek potomky
         if (aktualni.synL != null || aktualni.synP != null) {
-
+            //TODO odebrat aktuální a nastavit místo něj jeden z potomků - teoreticky možnost vkládat v loopu potomky odebraného
 
             //když prvek nemá žádné potomky
         } else {
