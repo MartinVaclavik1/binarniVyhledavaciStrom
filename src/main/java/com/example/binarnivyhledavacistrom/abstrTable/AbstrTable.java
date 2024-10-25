@@ -183,10 +183,15 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
                             odebrany = odebranyPrvek.value;
                         }
                         case DO_HLOUBKY -> {
-
-
-
                             Prvek<K, V> odebranyPrvek = lifo.odeber();
+
+                            if (odebranyPrvek.synP != null) {
+                                lifo.vloz(odebranyPrvek.synP);
+                            }
+                            if (odebranyPrvek.synL != null) {
+                                lifo.vloz(odebranyPrvek.synL);
+                            }
+
                             odebrany = odebranyPrvek.value;
                         }
                     }
