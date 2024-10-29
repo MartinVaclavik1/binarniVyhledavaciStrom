@@ -33,7 +33,8 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
 
     @Override
     public void zrus() {
-        koren = null;
+        koren = aktualni = null;
+        pocet = 0;
     }
 
     @Override
@@ -75,6 +76,9 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
     //vyhodí chybu, že už existuje
     @Override
     public void vloz(K key, V value) throws AbstrTableException {
+        if (key == null || value == null) {
+            throw new AbstrTableException("??");
+        }
         if (jePrazdny()) {
             koren = new Prvek<>(null, key, value, null, null);
         } else {
@@ -123,27 +127,104 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
             throw new AbstrTableException(e.getMessage());
         }
         V value = aktualni.value;
-        K odebrany = aktualni.key;
 
-        //když má prvek potomky
+
+        //najde největší-menší prvek a nejmenší-větší prvek a pak je porovná s aktuálním a kterej bude blíž,
+        //(nezapomenout to dát jako abs value) tak se nastaví jako náhradník
+
+        // když má prvek potomky
         if (aktualni.synL != null || aktualni.synP != null) {
-            //TODO odebrat aktuální a nastavit místo něj jeden z potomků - teoreticky možnost vkládat v loopu potomky odebraného
+            //TODO odebrat aktuální a nastavit místo něj jeden z potomků
+
+            Prvek<K, V> nejblizsiNejmensi = aktualni.synL;
+            Prvek<K, V> nejblizsiNejvetsi = aktualni.synP;
+            Prvek<K, V> nastupce = null;
+
+            if (nejblizsiNejmensi != null) {
+                while (nejblizsiNejmensi.synP != null) {
+                    nejblizsiNejmensi = nejblizsiNejmensi.synP;
+                }
+                nastupce = nejblizsiNejmensi;
+            }
+
+            if (nejblizsiNejvetsi != null) {
+                while (nejblizsiNejvetsi.synL != null) {
+                    nejblizsiNejvetsi = nejblizsiNejvetsi.synL;
+                }
+                nastupce = nejblizsiNejvetsi;
+            }
+
+            if (nejblizsiNejvetsi != null && nejblizsiNejmensi != null) {
+                if (rozdilPrvku(aktualni, nejblizsiNejmensi) < rozdilPrvku(aktualni, nejblizsiNejvetsi)) {
+                    nastupce = nejblizsiNejmensi;
+                }
+            }
+
+            //propojí zbývající prvky po náhradníkovi odebraného s předkem
+            if (nastupce == nejblizsiNejmensi) {
+                if (nastupce.synP != null) {
+                    nastupce.rodic.synL = nastupce.synP;
+                    nastupce.synP.rodic = nastupce.rodic;
+                }
+            } else {
+                if (nastupce.synL != null) {
+                    nastupce.rodic.synP = nastupce.synL;
+                    nastupce.synL.rodic = nastupce.rodic;
+                }
+            }
+
+            //TODO odebrat link z rodiče nástupce na nástupce, z nástupce na rodiče
+            // Pak nahradit všechny atributy aktuálního na nástupce
+            // - nezapomenout i od
+
+            //zjištění jaký syn je v rodiči pomocí comparatoru
+            if (aktualni != koren) {
+                switch (compareTo(aktualni.rodic.key)) {
+                    //pravý (aktuální [odebraný] je větší, než rodič)
+                    case 1 -> aktualni.rodic.synP = nastupce;
+                    //levý (aktuální [odebraný] je menší, než rodič)
+                    case -1 -> aktualni.rodic.synL = nastupce;
+                }
+                nastupce.rodic = aktualni.rodic;
+                aktualni.rodic = null;
+            }
+            //TODO přepojit i zbytek
 
             //když prvek nemá žádné potomky
         } else {
             //když prvek není kořenový prvek, tak se odebere link z rodiče na něj
             if (aktualni.rodic != null) {
+                //zjištění jaký syn je v rodiči
                 if (aktualni.rodic.synL == aktualni) {
                     aktualni.rodic.synL = null;
                 } else if (aktualni.rodic.synP == aktualni) {
                     aktualni.rodic.synP = null;
                 }
+                //odebrání linku z aktuálního na rodiče
+                aktualni.rodic = null;
+            } else {
+                //když nemá potomky a je kořenový prvek, tak je jen 1 prvek v seznamu a může se zrušit celý
+                zrus();
             }
-            //odebrání linku z aktuálního na rodiče
-            aktualni.rodic = null;
         }
         pocet--;
         return value;
+    }
+
+    //vrátí číslo, jaký je rozdíl mezi prvkem1 a prvkem2 v absolutní hodnotě
+    private Integer rozdilPrvku(Prvek<K, V> prvek1, Prvek<K, V> prvek2) throws AbstrTableException {
+
+        char[] prvek1Char = prvek1.key.toString().toCharArray();
+        char[] prvek2Char = prvek2.toString().toCharArray();
+        int pocetOpakovani = Math.min(prvek1Char.length, prvek2Char.length);
+
+        for (int i = 0; i < pocetOpakovani; i++) {
+            if (prvek1Char[i] != prvek2Char[i]) {
+                return Math.abs(prvek1Char[i] - prvek2Char[i]);
+            }
+        }
+
+        throw new AbstrTableException("Chyba při odečítání prvků");
     }
 
     @Override
@@ -193,6 +274,7 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
 
                             odebrany = odebranyPrvek.value;
                         }
+                        //todo in order
                     }
                 } else {
                     throw new NoSuchElementException();

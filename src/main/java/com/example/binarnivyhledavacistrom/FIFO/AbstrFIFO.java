@@ -4,6 +4,8 @@ import com.example.binarnivyhledavacistrom.abstrDoubleList.AbstrDoubleList;
 import com.example.binarnivyhledavacistrom.abstrDoubleList.AbstrDoubleListException;
 import com.example.binarnivyhledavacistrom.abstrDoubleList.IAbstrDoubleList;
 
+import java.util.Iterator;
+
 public class AbstrFIFO<T> implements IAbstrFIFO<T> {
 
     IAbstrDoubleList<T> list;
@@ -38,5 +40,21 @@ public class AbstrFIFO<T> implements IAbstrFIFO<T> {
         } catch (AbstrDoubleListException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    //TODO
+    @Override
+    public Iterator<T> vytvorIterator() {
+        return new Iterator<>() {
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
+
+            @Override
+            public T next() {
+                return null;
+            }
+        };
     }
 }

@@ -1,5 +1,7 @@
 package com.example.binarnivyhledavacistrom.LIFO;
 
+import java.util.Iterator;
+
 public interface IAbstrLIFO<T> {
     void zrus();
 
@@ -8,4 +10,5 @@ public interface IAbstrLIFO<T> {
     void vloz(T data);
 
     T odeber();
+    Iterator<T> vytvorIterator();
 }
