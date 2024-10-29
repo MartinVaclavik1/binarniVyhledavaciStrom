@@ -163,13 +163,22 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
             //propojí zbývající prvky po náhradníkovi odebraného s předkem
             if (nastupce == nejblizsiNejmensi) {
                 if (nastupce.synL != null) {
-                    nastupce.rodic.synP = nastupce.synL;
-                    nastupce.synL.rodic = nastupce.rodic;
+                    if (nastupce.rodic != aktualni) {
+                        nastupce.rodic.synP = nastupce.synL;
+                        nastupce.synL.rodic = nastupce.rodic;
+                        nastupce.synL = aktualni.synL;
+                    }
+                    nastupce.synP = aktualni.synP;
+
                 }
             } else {
                 if (nastupce.synP != null) {
-                    nastupce.rodic.synL = nastupce.synP;
-                    nastupce.synP.rodic = nastupce.rodic;
+                    if (nastupce.rodic != aktualni) {
+                        nastupce.rodic.synL = nastupce.synP;
+                        nastupce.synP.rodic = nastupce.rodic;
+                        nastupce.synP = aktualni.synP;
+                    }
+                    nastupce.synL = aktualni.synL;
                 }
             }
 
@@ -190,14 +199,11 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
             }
             //TODO přepojit i zbytek
 
-            //je jedno, jestli synP/L je null
-            nastupce.synP = aktualni.synP;
-            nastupce.synL = aktualni.synL;
 
-            if (aktualni.synP != null) {
+            if (aktualni.synP != null && aktualni.synP != nastupce) {
                 aktualni.synP.rodic = nastupce;
             }
-            if (aktualni.synL != null) {
+            if (aktualni.synL != null && aktualni.synL != nastupce) {
                 aktualni.synL.rodic = nastupce;
             }
 
@@ -218,6 +224,7 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
                 zrus();
             }
         }
+        aktualni = null;
         pocet--;
         return value;
     }
