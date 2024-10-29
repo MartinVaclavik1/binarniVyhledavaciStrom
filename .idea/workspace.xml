@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="hotové odebírání? - otestovat více">
+    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="hotové odebírání">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/enumy/eTypProhl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/enumy/eTypProhl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTableTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +53,7 @@
     "JUnit.AbstrTableTest.testIterator01.executor": "Run",
     "JUnit.AbstrTableTest.testIterator02.executor": "Run",
     "JUnit.AbstrTableTest.testIterator03.executor": "Run",
+    "JUnit.AbstrTableTest.testIterator04.executor": "Run",
     "JUnit.AbstrTableTest.testNajdi01.executor": "Run",
     "JUnit.AbstrTableTest.testNajdi02.executor": "Run",
     "JUnit.AbstrTableTest.testOdeber01.executor": "Debug",
@@ -85,7 +87,7 @@
       <recent name="com.example.binarnivyhledavacistrom.abstrTable" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AbstrTableTest.testOdeber02">
+  <component name="RunManager" selected="JUnit.AbstrTableTest.testIterator04">
     <configuration name="AbstrTableTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="binarniVyhledavaciStrom" />
       <extension name="coverage">
@@ -117,7 +119,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AbstrTableTest.testIterator03" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AbstrTableTest.testIterator04" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="binarniVyhledavaciStrom" />
       <extension name="coverage">
         <pattern>
@@ -127,7 +129,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example.binarnivyhledavacistrom.abstrTable" />
       <option name="MAIN_CLASS_NAME" value="com.example.binarnivyhledavacistrom.abstrTable.AbstrTableTest" />
-      <option name="METHOD_NAME" value="testIterator03" />
+      <option name="METHOD_NAME" value="testIterator04" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -167,11 +169,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AbstrTableTest.testIterator04" />
+        <item itemvalue="JUnit.AbstrTableTest" />
+        <item itemvalue="JUnit.AbstrTableTest.testIterator02" />
         <item itemvalue="JUnit.AbstrTableTest.testOdeber02" />
         <item itemvalue="JUnit.AbstrTableTest.testOdeber01" />
-        <item itemvalue="JUnit.AbstrTableTest" />
-        <item itemvalue="JUnit.AbstrTableTest.testIterator03" />
-        <item itemvalue="JUnit.AbstrTableTest.testIterator02" />
       </list>
     </recent_temporary>
   </component>
@@ -186,7 +188,7 @@
       <workItem from="1729697639485" duration="10956000" />
       <workItem from="1729760916563" duration="11442000" />
       <workItem from="1729944906038" duration="1924000" />
-      <workItem from="1730193724393" duration="6869000" />
+      <workItem from="1730193724393" duration="10286000" />
     </task>
     <task id="LOCAL-00001" summary="inicializace">
       <option name="closed" value="true" />
@@ -332,7 +334,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730200922189</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="hotové odebírání">
+      <option name="closed" value="true" />
+      <created>1730204921430</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1730204921430</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,17 +366,7 @@
     <MESSAGE value="informace jak dělat odebírání" />
     <MESSAGE value="odebírání prvku - polovina hotova" />
     <MESSAGE value="hotové odebírání? - otestovat více" />
-    <option name="LAST_COMMIT_MESSAGE" value="hotové odebírání? - otestovat více" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java</url>
-          <line>227</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="hotové odebírání" />
+    <option name="LAST_COMMIT_MESSAGE" value="hotové odebírání" />
   </component>
 </project>

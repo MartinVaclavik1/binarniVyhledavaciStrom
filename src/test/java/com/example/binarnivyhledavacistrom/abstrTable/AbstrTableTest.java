@@ -182,6 +182,34 @@ class AbstrTableTest {
     }
 
     @Test
+    void testIterator04() {
+        IAbstrTable<String, Integer> strom = new AbstrTable<>();
+        try {
+            strom.vloz("f", 40);
+            strom.vloz("a", 4);
+            strom.vloz("e", 34);
+            strom.vloz("c", 14);
+            strom.vloz("b", 13);
+            strom.vloz("d", 15);
+            strom.vloz("g", 45);
+            strom.vloz("k", 55);
+            strom.vloz("i", 48);
+            strom.vloz("h", 47);
+            strom.vloz("j", 49);
+
+
+            Iterator<Integer> iterator = strom.vytvorIterator(eTypProhl.IN_ORDER);
+
+            while (iterator.hasNext()) {
+                System.out.println(iterator.next());
+            }
+
+        } catch (AbstrTableException | NoSuchElementException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    @Test
     void testOdeber01() {
         IAbstrTable<String, TestClass> strom = new AbstrTable<>();
         try {

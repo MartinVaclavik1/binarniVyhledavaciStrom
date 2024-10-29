@@ -120,7 +120,6 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
     @Override
     public V odeber(K key) throws AbstrTableException {
         //pro nastavení aktuálního na danou pozici
-        //TODO
         try {
             najdi(key);
         } catch (AbstrTableException e) {
@@ -134,7 +133,6 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
 
         // když má prvek potomky
         if (aktualni.synL != null || aktualni.synP != null) {
-            //TODO odebrat aktuální a nastavit místo něj jeden z potomků
 
             Prvek<K, V> nejblizsiNejmensi = aktualni.synL;
             Prvek<K, V> nejblizsiNejvetsi = aktualni.synP;
@@ -197,8 +195,6 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
                 nastupce.rodic = aktualni.rodic;
                 aktualni.rodic = null;
             }
-            //TODO přepojit i zbytek
-
 
             if (aktualni.synP != null && aktualni.synP != nastupce) {
                 aktualni.synP.rodic = nastupce;
@@ -250,6 +246,7 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
         return new Iterator<>() {
             final IAbstrFIFO<Prvek<K, V>> fifo = new AbstrFIFO<>();
             final IAbstrLIFO<Prvek<K, V>> lifo = new AbstrLIFO<>();
+            private Prvek<K, V> dalsi;
             int zobrazenyPocet = 0;
 
             @Override
@@ -265,6 +262,13 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
                     if (zobrazenyPocet == 0) {
                         fifo.vloz(koren);
                         lifo.vloz(koren);
+
+                        dalsi = koren;
+
+                        while (dalsi.synL != null) {
+                            dalsi = dalsi.synL;
+                        }
+
                     }
 
                     switch (typ) {
@@ -292,7 +296,33 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
 
                             odebrany = odebranyPrvek.value;
                         }
-                        //todo in order
+                        case IN_ORDER -> {
+                            //dostat se co nejvíc doleva a odsud začínat. když je možnost jít doleva, tak jít,
+                            // ale jít hned co nejvíc doleva
+                            Prvek<K, V> odebranyPrvek = dalsi;
+
+                            if (dalsi.synP != null) {
+                                dalsi = dalsi.synP;
+                                while (dalsi.synL != null)
+                                    dalsi = dalsi.synL;
+                                odebrany = odebranyPrvek.value;
+                                break;
+                            }
+
+                            while (true) {
+                                if (dalsi.rodic == null) {
+                                    dalsi = null;
+                                    odebrany = odebranyPrvek.value;
+                                    break;
+                                }
+                                if (dalsi.rodic.synL == dalsi) {
+                                    dalsi = dalsi.rodic;
+                                    odebrany = odebranyPrvek.value;
+                                    break;
+                                }
+                                dalsi = dalsi.rodic;
+                            }
+                        }
                     }
                 } else {
                     throw new NoSuchElementException();
