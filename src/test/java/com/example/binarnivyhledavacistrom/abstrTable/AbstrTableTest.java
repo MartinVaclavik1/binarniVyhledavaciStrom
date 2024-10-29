@@ -180,4 +180,32 @@ class AbstrTableTest {
             System.err.println(e.getMessage());
         }
     }
+
+    @Test
+    void testOdeber02() {
+        IAbstrTable<String, TestClass> strom = new AbstrTable<>();
+        try {
+            strom.vloz("T3", T3);
+            strom.vloz("T5", T5);
+            strom.vloz("T1", T1);
+            strom.vloz("T2", T2);
+            strom.vloz("T4", T4);
+            strom.vloz("T9", T9);
+            strom.vloz("T6", T6);
+            strom.vloz("T8", T8);
+            strom.vloz("T7", T7);
+            Iterator<TestClass> iterator = strom.vytvorIterator(eTypProhl.DO_SIRKY);
+            while (iterator.hasNext()){
+                System.out.println(iterator.next().toString());
+            }
+
+            /*assertEquals(*/strom.odeber("T9")/*, T9)*/;
+            iterator = strom.vytvorIterator(eTypProhl.DO_SIRKY);
+            while (iterator.hasNext()){
+                System.out.println(iterator.next().toString());
+            }
+        } catch (AbstrTableException e) {
+            System.err.println(e.getMessage());
+        }
+    }
 }

@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="informace jak dělat odebírání">
+    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="odebírání prvku - polovina hotova">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/FIFO/AbstrFIFO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/FIFO/AbstrFIFO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/FIFO/IAbstrFIFO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/FIFO/IAbstrFIFO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/LIFO/AbstrLIFO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/LIFO/AbstrLIFO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/LIFO/IAbstrLIFO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/LIFO/IAbstrLIFO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTableTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,32 +46,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.AbstrTableTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AbstrTableTest.testIterator01.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AbstrTableTest.testIterator02.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AbstrTableTest.testIterator03.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AbstrTableTest.testNajdi01.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AbstrTableTest.testNajdi02.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AbstrTableTest.testVloz01.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/admin/OneDrive - Univerzita Pardubice/Dokumenty/NetBeansProjects/binarniVyhledavaciStrom/src/main/java/com/example/binarnivyhledavacistrom&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.AbstrTableTest.executor": "Run",
+    "JUnit.AbstrTableTest.testIterator01.executor": "Run",
+    "JUnit.AbstrTableTest.testIterator02.executor": "Run",
+    "JUnit.AbstrTableTest.testIterator03.executor": "Run",
+    "JUnit.AbstrTableTest.testNajdi01.executor": "Run",
+    "JUnit.AbstrTableTest.testNajdi02.executor": "Run",
+    "JUnit.AbstrTableTest.testOdeber02.executor": "Run",
+    "JUnit.AbstrTableTest.testVloz01.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/admin/OneDrive - Univerzita Pardubice/Dokumenty/NetBeansProjects/binarniVyhledavaciStrom/src/main/java/com/example/binarnivyhledavacistrom",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\admin\OneDrive - Univerzita Pardubice\Dokumenty\NetBeansProjects\binarniVyhledavaciStrom\src\main\java\com\example\binarnivyhledavacistrom" />
@@ -86,7 +84,7 @@
       <recent name="com.example.binarnivyhledavacistrom.abstrTable" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AbstrTableTest">
+  <component name="RunManager" selected="JUnit.AbstrTableTest.testOdeber02">
     <configuration name="AbstrTableTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="binarniVyhledavaciStrom" />
       <extension name="coverage">
@@ -150,7 +148,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AbstrTableTest.testNajdi02" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AbstrTableTest.testOdeber02" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="binarniVyhledavaciStrom" />
       <extension name="coverage">
         <pattern>
@@ -160,7 +158,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example.binarnivyhledavacistrom.abstrTable" />
       <option name="MAIN_CLASS_NAME" value="com.example.binarnivyhledavacistrom.abstrTable.AbstrTableTest" />
-      <option name="METHOD_NAME" value="testNajdi02" />
+      <option name="METHOD_NAME" value="testOdeber02" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -168,11 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AbstrTableTest.testOdeber02" />
         <item itemvalue="JUnit.AbstrTableTest" />
         <item itemvalue="JUnit.AbstrTableTest.testIterator03" />
         <item itemvalue="JUnit.AbstrTableTest.testIterator02" />
         <item itemvalue="JUnit.AbstrTableTest.testIterator01" />
-        <item itemvalue="JUnit.AbstrTableTest.testNajdi02" />
       </list>
     </recent_temporary>
   </component>
@@ -187,7 +185,7 @@
       <workItem from="1729697639485" duration="10956000" />
       <workItem from="1729760916563" duration="11442000" />
       <workItem from="1729944906038" duration="1924000" />
-      <workItem from="1730193724393" duration="3500000" />
+      <workItem from="1730193724393" duration="4714000" />
     </task>
     <task id="LOCAL-00001" summary="inicializace">
       <option name="closed" value="true" />
@@ -317,7 +315,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729870618005</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="odebírání prvku - polovina hotova">
+      <option name="closed" value="true" />
+      <created>1730199715817</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1730199715817</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,6 +345,7 @@
     <MESSAGE value="iterator do hloubky" />
     <MESSAGE value="AbstrTable iterator testy" />
     <MESSAGE value="informace jak dělat odebírání" />
-    <option name="LAST_COMMIT_MESSAGE" value="informace jak dělat odebírání" />
+    <MESSAGE value="odebírání prvku - polovina hotova" />
+    <option name="LAST_COMMIT_MESSAGE" value="odebírání prvku - polovina hotova" />
   </component>
 </project>

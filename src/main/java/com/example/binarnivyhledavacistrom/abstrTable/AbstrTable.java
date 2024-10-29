@@ -162,14 +162,14 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
 
             //propojí zbývající prvky po náhradníkovi odebraného s předkem
             if (nastupce == nejblizsiNejmensi) {
-                if (nastupce.synP != null) {
-                    nastupce.rodic.synL = nastupce.synP;
-                    nastupce.synP.rodic = nastupce.rodic;
-                }
-            } else {
                 if (nastupce.synL != null) {
                     nastupce.rodic.synP = nastupce.synL;
                     nastupce.synL.rodic = nastupce.rodic;
+                }
+            } else {
+                if (nastupce.synP != null) {
+                    nastupce.rodic.synL = nastupce.synP;
+                    nastupce.synP.rodic = nastupce.rodic;
                 }
             }
 
@@ -189,6 +189,17 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
                 aktualni.rodic = null;
             }
             //TODO přepojit i zbytek
+
+            //je jedno, jestli synP/L je null
+            nastupce.synP = aktualni.synP;
+            nastupce.synL = aktualni.synL;
+
+            if (aktualni.synP != null) {
+                aktualni.synP.rodic = nastupce;
+            }
+            if (aktualni.synL != null) {
+                aktualni.synL.rodic = nastupce;
+            }
 
             //když prvek nemá žádné potomky
         } else {
@@ -307,5 +318,9 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
             }
         }
         return Integer.compare(prvekChar.length, aktualniChar.length);
+    }
+
+    public int getPocet() {
+        return pocet;
     }
 }
