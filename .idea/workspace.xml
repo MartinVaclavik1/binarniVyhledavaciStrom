@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="in irder iterator (rozhodně ne zkopírovaný z netu 👀)">
+    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="oprava odeber (první)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/Obec.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/agendaKraj/AgendaKraj.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/agendaKraj/AgendaKrajException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/agendaKraj/IAgendaKraj.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTableTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -85,6 +87,9 @@
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.example.binarnivyhledavacistrom.abstrTable" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.binarnivyhledavacistrom" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.AbstrTableTest.testOdeber01">
@@ -191,6 +196,7 @@
       <workItem from="1730193724393" duration="11536000" />
       <workItem from="1730286167473" duration="268000" />
       <workItem from="1730375277748" duration="412000" />
+      <workItem from="1730384256648" duration="1246000" />
     </task>
     <task id="LOCAL-00001" summary="inicializace">
       <option name="closed" value="true" />
@@ -352,7 +358,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730223296857</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="oprava odeber (první)">
+      <option name="closed" value="true" />
+      <created>1730383983740</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1730383983740</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,14 +392,15 @@
     <MESSAGE value="hotové odebírání? - otestovat více" />
     <MESSAGE value="hotové odebírání" />
     <MESSAGE value="in irder iterator (rozhodně ne zkopírovaný z netu )" />
-    <option name="LAST_COMMIT_MESSAGE" value="in irder iterator (rozhodně ne zkopírovaný z netu )" />
+    <MESSAGE value="oprava odeber (první)" />
+    <option name="LAST_COMMIT_MESSAGE" value="oprava odeber (první)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java</url>
-          <line>226</line>
+          <line>225</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
