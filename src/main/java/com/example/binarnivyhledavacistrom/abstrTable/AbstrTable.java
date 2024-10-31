@@ -177,12 +177,10 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
                         nastupce.synP = aktualni.synP;
                     }
                     nastupce.synL = aktualni.synL;
+
                 }
             }
 
-            //TODO odebrat link z rodiče nástupce na nástupce, z nástupce na rodiče
-            // Pak nahradit všechny atributy aktuálního na nástupce
-            // - nezapomenout i od
 
             //zjištění jaký syn je v rodiči pomocí comparatoru
             if (aktualni != koren) {
@@ -194,13 +192,17 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
                 }
                 nastupce.rodic = aktualni.rodic;
                 aktualni.rodic = null;
+            } else {
+                koren = nastupce;
             }
 
             if (aktualni.synP != null && aktualni.synP != nastupce) {
                 aktualni.synP.rodic = nastupce;
+                nastupce.synP = aktualni.synP;
             }
             if (aktualni.synL != null && aktualni.synL != nastupce) {
                 aktualni.synL.rodic = nastupce;
+                nastupce.synL = aktualni.synL;
             }
 
             //když prvek nemá žádné potomky
