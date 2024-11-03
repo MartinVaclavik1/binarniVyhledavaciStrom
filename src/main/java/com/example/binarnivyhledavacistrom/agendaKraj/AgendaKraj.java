@@ -69,11 +69,11 @@ public class AgendaKraj implements IAgendaKraj {
         }
 
         int zbytekPoDeleni = poleObci.length % 2;
-        int levaDelka = 0;
-        int pravaDelka = 0;
+        int levaDelka;
+        int pravaDelka;
 
-        Obec[] levaStrana = null;
-        Obec[] pravaStrana = null;
+        Obec[] levaStrana;
+        Obec[] pravaStrana;
 
 
         if (zbytekPoDeleni == 1) {
@@ -89,9 +89,7 @@ public class AgendaKraj implements IAgendaKraj {
 
         if (levaDelka > 0) {
             levaStrana = new Obec[levaDelka];
-            for (int i = 0; i < levaDelka; i++) {
-                levaStrana[i] = poleObci[i];
-            }
+            System.arraycopy(poleObci, 0, levaStrana, 0, levaDelka);
             vlozDoStromu(levaStrana);
         }
 
@@ -102,9 +100,7 @@ public class AgendaKraj implements IAgendaKraj {
                 pravaStrana[i] = poleObci[poleObci.length / 2 + 1 + i];
             }
         } else {
-            for (int i = 0; i < pravaDelka; i++) {
-                pravaStrana[i] = poleObci[poleObci.length / 2 + i];
-            }
+            System.arraycopy(poleObci, poleObci.length / 2, pravaStrana, 0, pravaDelka);
         }
         vlozDoStromu(pravaStrana);
 
