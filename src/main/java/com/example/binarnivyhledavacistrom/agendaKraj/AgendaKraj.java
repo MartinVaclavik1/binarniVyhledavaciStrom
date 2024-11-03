@@ -95,8 +95,9 @@ public class AgendaKraj implements IAgendaKraj {
             vlozDoStromu(levaStrana);
         }
 
-        pravaStrana = new Obec[pravaDelka];
-        if (zbytekPoDeleni == 1) {
+        pravaStrana = new Obec[pravaDelka]; //nemusí být kontrolován počet jako u levé strany, protože nemůže být 0
+        if (zbytekPoDeleni == 1) { //musí být rozděleno na sudé a liché z důvodu posunutí/neposunutí ukazatele o 1 doprava,
+                                   //jinak se u lichých vkládá 2x stejná hodnota a u sudých překračuje limit pole
             for (int i = 0; i < pravaDelka; i++) {
                 pravaStrana[i] = poleObci[poleObci.length / 2 + 1 + i];
             }
