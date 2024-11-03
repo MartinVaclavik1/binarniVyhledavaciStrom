@@ -97,7 +97,8 @@ public class AgendaKraj implements IAgendaKraj {
         if (zbytekPoDeleni == 1) { //musí být rozděleno na sudé a liché z důvodu posunutí/neposunutí ukazatele o 1 doprava,
                                    //jinak se u lichých vkládá 2x stejná hodnota a u sudých překračuje limit pole
             for (int i = 0; i < pravaDelka; i++) {
-                pravaStrana[i] = poleObci[poleObci.length / 2 + 1 + i];
+                //pravaStrana[i] = poleObci[poleObci.length / 2 + 1 + i];
+                System.arraycopy(poleObci, poleObci.length / 2 + 1, pravaStrana, 0, pravaDelka);
             }
         } else {
             System.arraycopy(poleObci, poleObci.length / 2, pravaStrana, 0, pravaDelka);

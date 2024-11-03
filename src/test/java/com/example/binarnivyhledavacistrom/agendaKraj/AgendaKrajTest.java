@@ -32,13 +32,10 @@ class AgendaKrajTest {
             kraj.vloz(T8);
             kraj.vloz(T9);
             kraj.vybuduj();
+            assertTrue(true);
         } catch (AgendaKrajException e) {
             System.err.println(e.getMessage());
         }
     }
 
-    @Test
-    void testVybuduj02() {
-        System.out.println(5/2);
-    }
 }

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="implementace Vybuduj">
+    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="popsání metody vlozDoStromu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/agendaKraj/AgendaKraj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/agendaKraj/AgendaKraj.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/binarnivyhledavacistrom/agendaKraj/AgendaKrajTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/binarnivyhledavacistrom/agendaKraj/AgendaKrajTest.java" afterDir="false" />
@@ -200,7 +200,7 @@
       <workItem from="1730193724393" duration="11536000" />
       <workItem from="1730286167473" duration="268000" />
       <workItem from="1730375277748" duration="412000" />
-      <workItem from="1730384256648" duration="6248000" />
+      <workItem from="1730384256648" duration="6425000" />
     </task>
     <task id="LOCAL-00001" summary="inicializace">
       <option name="closed" value="true" />
@@ -386,7 +386,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730661437327</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="popsání metody vlozDoStromu">
+      <option name="closed" value="true" />
+      <created>1730662132514</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1730662132514</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -415,7 +423,8 @@
     <MESSAGE value="oprava odeber (první)" />
     <MESSAGE value="vytvoření AgendaKraj" />
     <MESSAGE value="implementace Vybuduj" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementace Vybuduj" />
+    <MESSAGE value="popsání metody vlozDoStromu" />
+    <option name="LAST_COMMIT_MESSAGE" value="popsání metody vlozDoStromu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
