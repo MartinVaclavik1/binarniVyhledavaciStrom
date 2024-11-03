@@ -10,5 +10,5 @@ public interface IAgendaKraj {
     Obec odeber(String nazev) throws AgendaKrajException;
     void vybuduj() throws AgendaKrajException;
     Iterator<Obec> vytvorIterator();
-    void generuj();
+    void generuj() throws AgendaKrajException;
 }

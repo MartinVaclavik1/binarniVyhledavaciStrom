@@ -7,6 +7,7 @@ import com.example.binarnivyhledavacistrom.abstrTable.IAbstrTable;
 import com.example.binarnivyhledavacistrom.enumy.eTypProhl;
 
 import java.util.Iterator;
+import java.util.Random;
 
 public class AgendaKraj implements IAgendaKraj {
     IAbstrTable<String, Obec> strom;
@@ -95,7 +96,7 @@ public class AgendaKraj implements IAgendaKraj {
 
         pravaStrana = new Obec[pravaDelka]; //nemusí být kontrolován počet jako u levé strany, protože nemůže být 0
         if (zbytekPoDeleni == 1) { //musí být rozděleno na sudé a liché z důvodu posunutí/neposunutí ukazatele o 1 doprava,
-                                   //jinak se u lichých vkládá 2x stejná hodnota a u sudých překračuje limit pole
+            //jinak se u lichých vkládá 2x stejná hodnota a u sudých překračuje limit pole
             for (int i = 0; i < pravaDelka; i++) {
                 //pravaStrana[i] = poleObci[poleObci.length / 2 + 1 + i];
                 System.arraycopy(poleObci, poleObci.length / 2 + 1, pravaStrana, 0, pravaDelka);
@@ -113,7 +114,19 @@ public class AgendaKraj implements IAgendaKraj {
     }
 
     @Override
-    public void generuj() {
+    public void generuj() throws AgendaKrajException {
+        Random nahoda = new Random();
+        int pocet = nahoda.nextInt(29) + 1;
 
+        for (int i = 0; i < pocet; i++){
+            int psc = nahoda.nextInt(89999) + 10000;
+            StringBuilder nazev = new StringBuilder();
+            for (int j = 0; j < nahoda.nextInt(5) + 5; j++){
+                nazev.append((char) ('a' + nahoda.nextInt(25)));
+            }
+            int pocetM = nahoda.nextInt(5000)+1;
+            int pocetZ = nahoda.nextInt(5000)+1;
+            vloz(new Obec(psc, nazev.toString(), pocetM, pocetZ));
+        }
     }
 }

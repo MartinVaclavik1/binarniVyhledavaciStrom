@@ -38,4 +38,16 @@ class AgendaKrajTest {
         }
     }
 
+    @Test
+    void testGeneruj01(){
+        IAgendaKraj kraj = new AgendaKraj();
+
+        try {
+            kraj.generuj();
+            kraj.vybuduj();
+        } catch (AgendaKrajException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
 }
