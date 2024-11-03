@@ -11,4 +11,5 @@ public interface IAbstrTable<K,V> extends Comparable<K> {
     void vloz(K key, V value) throws AbstrTableException;
     V odeber(K key) throws AbstrTableException;
     Iterator<V> vytvorIterator(eTypProhl typ);
+    int getPocet();
 }

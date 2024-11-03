@@ -81,6 +81,7 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
         }
         if (jePrazdny()) {
             koren = new Prvek<>(null, key, value, null, null);
+            pocet++;
         } else {
             Prvek<K, V> novyPrvek = new Prvek<>(null, key, value, null, null);
             aktualni = koren;
