@@ -73,17 +73,17 @@ public class ProgAgendaKraj extends Application {
                 //TODO smazat zbytek pole?
                 //this.kraj = new AgendaKraj();
 
-                int kraj = vstup.readInt();
+                int konec = vstup.readInt();
 
-                while (kraj != -1) {
+                while (konec != -1) {
                     Obec obec = (Obec) vstup.readObject();
                     //System.out.println(obec);
                     if (obec != null) {
-                        this.kraj.vloz(obec);
+                        kraj.vloz(obec);
                         pocet++;
                     }
 
-                    kraj = vstup.readInt();
+                    konec = vstup.readInt();
 
                 }
                 vstup.close();
