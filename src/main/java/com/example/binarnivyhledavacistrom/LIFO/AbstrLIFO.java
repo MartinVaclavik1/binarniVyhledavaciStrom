@@ -42,19 +42,8 @@ public class AbstrLIFO<T> implements IAbstrLIFO<T> {
         }
     }
 
-    //TODO
     @Override
     public Iterator<T> vytvorIterator() {
-        return new Iterator<>() {
-            @Override
-            public boolean hasNext() {
-                return false;
-            }
-
-            @Override
-            public T next() {
-                return null;
-            }
-        };
+        return list.iterator();
     }
 }
