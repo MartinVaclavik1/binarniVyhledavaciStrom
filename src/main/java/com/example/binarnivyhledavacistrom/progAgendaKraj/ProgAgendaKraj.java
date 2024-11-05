@@ -1,7 +1,6 @@
 package com.example.binarnivyhledavacistrom.progAgendaKraj;
 
 import com.example.binarnivyhledavacistrom.Obec;
-import com.example.binarnivyhledavacistrom.abstrTable.AbstrTableException;
 import com.example.binarnivyhledavacistrom.agendaKraj.AgendaKraj;
 import com.example.binarnivyhledavacistrom.agendaKraj.AgendaKrajException;
 import com.example.binarnivyhledavacistrom.agendaKraj.IAgendaKraj;
@@ -53,6 +52,7 @@ public class ProgAgendaKraj extends Application {
         vBox.getChildren().add(newButton("ulož", uloz()));
         vBox.getChildren().add(newButton("načti", nacti()));
         vBox.getChildren().add(newButton("vygeneruj", vygeneruj()));
+        vBox.getChildren().add(newButton("aktualizuj", aktualizuj()));
 
         Scene scene = new Scene(root);
         stage.setTitle("Václavík - AbstrTable");
@@ -60,6 +60,12 @@ public class ProgAgendaKraj extends Application {
         stage.setHeight(500);
         stage.setWidth(800);
         stage.show();
+    }
+
+    private EventHandler<ActionEvent> aktualizuj() {
+        return EventHandler ->{
+            aktualizujListView();
+        };
     }
 
     private EventHandler<ActionEvent> nacti() {
@@ -71,7 +77,7 @@ public class ProgAgendaKraj extends Application {
                         new ObjectInputStream(
                                 new FileInputStream(nazevSouboru));
                 //TODO smazat zbytek pole?
-                //this.kraj = new AgendaKraj();
+                this.kraj = new AgendaKraj();
 
                 int konec = vstup.readInt();
 
@@ -87,6 +93,7 @@ public class ProgAgendaKraj extends Application {
 
                 }
                 vstup.close();
+                aktualizujListView();
                 System.out.println("Úspěšně načteno " + pocet + " obcí");
 
             } catch (Exception x) {
@@ -131,7 +138,7 @@ public class ProgAgendaKraj extends Application {
             if (soubor != null) {
                 nactiData(String.valueOf(soubor));
             }
-            //TODO aktualizovat
+            aktualizujListView();
         };
     }
 
@@ -146,7 +153,7 @@ public class ProgAgendaKraj extends Application {
                 }
                 kraj.vloz(obec);
 
-                //TODO aktualizovat
+                aktualizujListView();
             } catch (AgendaKrajException x) {
                 chybovaHlaska(x.getMessage());
             }
@@ -202,8 +209,7 @@ public class ProgAgendaKraj extends Application {
         return EventHandler -> {
             try {
                 kraj.generuj();
-
-                //TODO aktualizovat
+                aktualizujListView();
             } catch (AgendaKrajException e) {
                 chybovaHlaska(e.getMessage());
             }
@@ -228,11 +234,20 @@ public class ProgAgendaKraj extends Application {
                 radek = nactenySoubor.readLine();
             }
 
-            //TODO aktualizovat
         } catch (IOException x) {
             chybovaHlaska("Chyba v načítání souboru");
         } catch (AgendaKrajException x) {
             chybovaHlaska(x.getMessage());
+        }
+    }
+
+    private void aktualizujListView() {
+
+        observableList.clear();
+
+        Iterator<Obec> iterator = kraj.vytvorIterator(eTypProhl.DO_HLOUBKY);
+        while (iterator.hasNext()) {
+            observableList.addAll(iterator.next().toString());
         }
     }
 

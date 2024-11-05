@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="vytvoření základů UI + opravení chyby v iteratoru">
+    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="opravena chyba v načítání souboru">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/progAgendaKraj/ProgAgendaKraj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/progAgendaKraj/ProgAgendaKraj.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -198,7 +198,7 @@
       <workItem from="1730375277748" duration="412000" />
       <workItem from="1730384256648" duration="7982000" />
       <workItem from="1730808468136" duration="4369000" />
-      <workItem from="1730828512087" duration="5998000" />
+      <workItem from="1730828512087" duration="6360000" />
     </task>
     <task id="LOCAL-00001" summary="inicializace">
       <option name="closed" value="true" />
@@ -448,14 +448,21 @@
       <option name="project" value="LOCAL" />
       <updated>1730836541613</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="opravena chyba v načítání souboru">
+      <option name="closed" value="true" />
+      <created>1730836816170</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1730836816170</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="přeskupení do balíčků" />
     <MESSAGE value="vypracování lifo a fifo" />
     <MESSAGE value="vypracování comparatoru" />
     <MESSAGE value="pozměnění názvů enumů" />
@@ -480,6 +487,7 @@
     <MESSAGE value="vytvoření ProgAgendaKraj" />
     <MESSAGE value="vymrdaná javaFX" />
     <MESSAGE value="vytvoření základů UI + opravení chyby v iteratoru" />
-    <option name="LAST_COMMIT_MESSAGE" value="vytvoření základů UI + opravení chyby v iteratoru" />
+    <MESSAGE value="opravena chyba v načítání souboru" />
+    <option name="LAST_COMMIT_MESSAGE" value="opravena chyba v načítání souboru" />
   </component>
 </project>
