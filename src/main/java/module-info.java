@@ -13,4 +13,6 @@ module com.example.binarnivyhledavacistrom {
     opens com.example.binarnivyhledavacistrom.enumy to javafx.fxml;
     exports com.example.binarnivyhledavacistrom.abstrTable;
     opens com.example.binarnivyhledavacistrom.abstrTable to javafx.fxml;
+    exports com.example.binarnivyhledavacistrom.progAgendaKraj;
+    opens com.example.binarnivyhledavacistrom.progAgendaKraj to javafx.fxml;
 }

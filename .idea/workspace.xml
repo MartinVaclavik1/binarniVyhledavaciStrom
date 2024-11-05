@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="generování náhodné obce">
+    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="vytvoření ProgAgendaKraj">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/FIFO/AbstrFIFO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/FIFO/AbstrFIFO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/LIFO/AbstrLIFO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/LIFO/AbstrLIFO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +18,9 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
+        <option value="JavaFXApplication" />
       </list>
     </option>
   </component>
@@ -48,6 +48,8 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.Launch.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ProgAgendaKraj.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.AbstrTableTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.AbstrTableTest.testIterator01.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.AbstrTableTest.testIterator02.executor&quot;: &quot;Run&quot;,
@@ -71,7 +73,7 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/admin/OneDrive - Univerzita Pardubice/Dokumenty/NetBeansProjects/binarniVyhledavaciStrom/src/main/java/com/example/binarnivyhledavacistrom&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/admin/OneDrive - Univerzita Pardubice/Dokumenty/NetBeansProjects/binarniVyhledavaciStrom/src/main/resources/com/example/binarnivyhledavacistrom&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -83,6 +85,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\OneDrive - Univerzita Pardubice\Dokumenty\NetBeansProjects\binarniVyhledavaciStrom\src\main\resources\com\example\binarnivyhledavacistrom" />
       <recent name="C:\Users\admin\OneDrive - Univerzita Pardubice\Dokumenty\NetBeansProjects\binarniVyhledavaciStrom\src\main\java\com\example\binarnivyhledavacistrom" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -96,19 +99,29 @@
       <recent name="com.example.binarnivyhledavacistrom" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AgendaKrajTest.testGeneruj01">
-    <configuration name="AbstrTableTest.testOdeber04" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Launch">
+    <configuration name="Launch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.binarnivyhledavacistrom.progAgendaKraj.Launch" />
       <module name="binarniVyhledavaciStrom" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.binarnivyhledavacistrom.abstrTable.*" />
+          <option name="PATTERN" value="com.example.binarnivyhledavacistrom.progAgendaKraj.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.binarnivyhledavacistrom.abstrTable" />
-      <option name="MAIN_CLASS_NAME" value="com.example.binarnivyhledavacistrom.abstrTable.AbstrTableTest" />
-      <option name="METHOD_NAME" value="testOdeber04" />
-      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProgAgendaKraj" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.binarnivyhledavacistrom.progAgendaKraj.ProgAgendaKraj" />
+      <module name="binarniVyhledavaciStrom" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.binarnivyhledavacistrom.progAgendaKraj.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -124,22 +137,6 @@
       <option name="PACKAGE_NAME" value="com.example.binarnivyhledavacistrom.agendaKraj" />
       <option name="MAIN_CLASS_NAME" value="com.example.binarnivyhledavacistrom.agendaKraj.AgendaKrajTest" />
       <option name="METHOD_NAME" value="testGeneruj01" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AgendaKrajTest.testVloz01" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="binarniVyhledavaciStrom" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.binarnivyhledavacistrom.agendaKraj.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.binarnivyhledavacistrom.agendaKraj" />
-      <option name="MAIN_CLASS_NAME" value="com.example.binarnivyhledavacistrom.agendaKraj.AgendaKrajTest" />
-      <option name="METHOD_NAME" value="testVloz01" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -179,11 +176,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Launch" />
+        <item itemvalue="Application.ProgAgendaKraj" />
         <item itemvalue="JUnit.AgendaKrajTest.testGeneruj01" />
         <item itemvalue="JUnit.AgendaKrajTest.testVybuduj01" />
         <item itemvalue="JUnit.AgendaKrajTest.testVybuduj02" />
-        <item itemvalue="JUnit.AgendaKrajTest.testVloz01" />
-        <item itemvalue="JUnit.AbstrTableTest.testOdeber04" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +199,8 @@
       <workItem from="1730286167473" duration="268000" />
       <workItem from="1730375277748" duration="412000" />
       <workItem from="1730384256648" duration="7982000" />
-      <workItem from="1730808468136" duration="906000" />
+      <workItem from="1730808468136" duration="4369000" />
+      <workItem from="1730828512087" duration="1115000" />
     </task>
     <task id="LOCAL-00001" summary="inicializace">
       <option name="closed" value="true" />
@@ -420,15 +418,29 @@
       <option name="project" value="LOCAL" />
       <updated>1730676943026</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="LIFO/FIFO iterator">
+      <option name="closed" value="true" />
+      <created>1730809400296</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1730809400296</updated>
+    </task>
+    <task id="LOCAL-00029" summary="vytvoření ProgAgendaKraj">
+      <option name="closed" value="true" />
+      <created>1730829526046</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1730829526046</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="inicializace" />
-    <MESSAGE value="vytvoření prvku" />
     <MESSAGE value="vytvoření lifo/fifo s interface" />
     <MESSAGE value="přeskupení do balíčků + překopírování AbstrDoubleList" />
     <MESSAGE value="přeskupení do balíčků" />
@@ -452,6 +464,8 @@
     <MESSAGE value="popsání metody vlozDoStromu" />
     <MESSAGE value="&quot;zkrásnění&quot; metody vlozDoStromu" />
     <MESSAGE value="generování náhodné obce" />
-    <option name="LAST_COMMIT_MESSAGE" value="generování náhodné obce" />
+    <MESSAGE value="LIFO/FIFO iterator" />
+    <MESSAGE value="vytvoření ProgAgendaKraj" />
+    <option name="LAST_COMMIT_MESSAGE" value="vytvoření ProgAgendaKraj" />
   </component>
 </project>
