@@ -18,18 +18,14 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.util.Pair;
 
 import java.io.*;
 import java.util.Iterator;
-import java.util.Objects;
 import java.util.Optional;
-import java.util.Random;
 
 public class ProgAgendaKraj extends Application {
     private final ObservableList<String> observableList = FXCollections.observableArrayList();
     private final ListView<String> listView = new ListView<>(observableList);
-    //    private final Obyvatele obyvatele = new Obyvatele();
     private final String nazevSouboru = "zaloha.bin";
     private IAgendaKraj kraj = new AgendaKraj();
 
@@ -52,6 +48,8 @@ public class ProgAgendaKraj extends Application {
         vBox.getChildren().add(newButton("ulož", uloz()));
         vBox.getChildren().add(newButton("načti", nacti()));
         vBox.getChildren().add(newButton("vygeneruj", vygeneruj()));
+        vBox.getChildren().add(newButton("odeber", odeber()));
+        vBox.getChildren().add(newButton("vybuduj", vybuduj()));
         vBox.getChildren().add(newButton("aktualizuj", aktualizuj()));
 
         Scene scene = new Scene(root);
@@ -62,21 +60,47 @@ public class ProgAgendaKraj extends Application {
         stage.show();
     }
 
-    private EventHandler<ActionEvent> aktualizuj() {
-        return EventHandler ->{
-            aktualizujListView();
+    private EventHandler<ActionEvent> odeber() {
+        return EventHandler -> {
+            try {
+                String obec = dialogNazev();
+                if (obec != null) {
+                    if (obec.isEmpty()) {
+                        chybovaHlaska("Nezadán název obce");
+                        return;
+                    }
+                    kraj.odeber(obec);
+                    aktualizujListView();
+                }
+            } catch (AgendaKrajException e) {
+                chybovaHlaska(e.getMessage());
+            }
         };
+    }
+
+    private EventHandler<ActionEvent> vybuduj() {
+        return EventHandler -> {
+            try {
+                kraj.vybuduj();
+            } catch (AgendaKrajException e) {
+                chybovaHlaska(e.getMessage());
+            }
+        };
+    }
+
+    private EventHandler<ActionEvent> aktualizuj() {
+        return EventHandler -> aktualizujListView();
     }
 
     private EventHandler<ActionEvent> nacti() {
         return EventHandler -> {
             try {
                 int pocet = 0;
-//            Objects.requireNonNull(pole);
                 ObjectInputStream vstup =
                         new ObjectInputStream(
                                 new FileInputStream(nazevSouboru));
-                //TODO smazat zbytek pole?
+
+                //TODO mazat zbytek pole, nebo nechat a přičíst? - pro nechání smazat následující řádek
                 this.kraj = new AgendaKraj();
 
                 int konec = vstup.readInt();
@@ -160,6 +184,38 @@ public class ProgAgendaKraj extends Application {
         };
     }
 
+    private String dialogNazev() {
+        GridPane gridPane = new GridPane();
+        gridPane.setHgap(10);
+        gridPane.setVgap(10);
+        gridPane.setPadding(new Insets(20, 10, 10, 10));
+
+        gridPane.add(new Label("Název obce (Case sensitive):"), 0, 1);
+
+        TextField nazevTXT = new TextField();
+        gridPane.add(nazevTXT, 1, 1);
+
+        Dialog<String> dialog = new Dialog<>();
+
+
+        dialog.getDialogPane().setContent(gridPane);
+        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+
+        dialog.setResultConverter(buttonType -> {
+            if (buttonType == ButtonType.OK) {
+                try {
+                    return nazevTXT.getText();
+                } catch (Exception x) {
+                    chybovaHlaska("Chyba v zadávání názvu obce");
+                }
+            }
+            return null;
+        });
+
+        Optional<String> nazev = dialog.showAndWait();
+        return nazev.orElse(null);
+    }
+
     //vrací buď null, nebo Obec dle zadaných parametrů
     private Obec dialogObec() {
         GridPane gridPane = new GridPane();
@@ -223,7 +279,7 @@ public class ProgAgendaKraj extends Application {
                 //0 = id kraje, 1 = ENUM kraj, 2 = PSČ, 3 = obec, 4 = pocet muzu, 5 = pocet zen, 6 = pocet celkem
                 String[] rozdelenyRadek = radek.split(";");
 
-                int idKraje = Integer.parseInt(rozdelenyRadek[0]);
+                //int idKraje = Integer.parseInt(rozdelenyRadek[0]);
                 int psc = Integer.parseInt(rozdelenyRadek[2]);
                 String nazevObce = rozdelenyRadek[3];
                 int pocetMuzu = Integer.parseInt(rozdelenyRadek[4]);

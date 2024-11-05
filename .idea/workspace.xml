@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="opravena chyba v načítání souboru">
+    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="vypisování do listView">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/progAgendaKraj/ProgAgendaKraj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/progAgendaKraj/ProgAgendaKraj.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -198,7 +199,7 @@
       <workItem from="1730375277748" duration="412000" />
       <workItem from="1730384256648" duration="7982000" />
       <workItem from="1730808468136" duration="4369000" />
-      <workItem from="1730828512087" duration="6360000" />
+      <workItem from="1730828512087" duration="10105000" />
     </task>
     <task id="LOCAL-00001" summary="inicializace">
       <option name="closed" value="true" />
@@ -456,14 +457,21 @@
       <option name="project" value="LOCAL" />
       <updated>1730836816170</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="vypisování do listView">
+      <option name="closed" value="true" />
+      <created>1730837314009</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1730837314009</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="vypracování lifo a fifo" />
     <MESSAGE value="vypracování comparatoru" />
     <MESSAGE value="pozměnění názvů enumů" />
     <MESSAGE value="přidání vyhazování chyb, testování a naimplementování většiny metod v AbstrTable" />
@@ -488,6 +496,7 @@
     <MESSAGE value="vymrdaná javaFX" />
     <MESSAGE value="vytvoření základů UI + opravení chyby v iteratoru" />
     <MESSAGE value="opravena chyba v načítání souboru" />
-    <option name="LAST_COMMIT_MESSAGE" value="opravena chyba v načítání souboru" />
+    <MESSAGE value="vypisování do listView" />
+    <option name="LAST_COMMIT_MESSAGE" value="vypisování do listView" />
   </component>
 </project>
