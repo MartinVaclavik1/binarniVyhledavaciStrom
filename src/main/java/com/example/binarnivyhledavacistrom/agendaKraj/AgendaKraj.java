@@ -51,6 +51,9 @@ public class AgendaKraj implements IAgendaKraj {
      */
     @Override
     public void vybuduj() throws AgendaKrajException {
+        if(strom.jePrazdny()){
+            throw new AgendaKrajException("Nelze vybudovat prázdný strom");
+        }
         Obec[] poleObci = new Obec[strom.getPocet()];
         Iterator<Obec> iterator = strom.vytvorIterator(eTypProhl.IN_ORDER);
 

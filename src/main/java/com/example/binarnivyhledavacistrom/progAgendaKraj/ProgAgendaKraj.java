@@ -48,9 +48,11 @@ public class ProgAgendaKraj extends Application {
         vBox.getChildren().add(newButton("ulož", uloz()));
         vBox.getChildren().add(newButton("načti", nacti()));
         vBox.getChildren().add(newButton("vygeneruj", vygeneruj()));
+        vBox.getChildren().add(newButton("najdi", najdi()));
         vBox.getChildren().add(newButton("odeber", odeber()));
         vBox.getChildren().add(newButton("vybuduj", vybuduj()));
         vBox.getChildren().add(newButton("aktualizuj", aktualizuj()));
+        vBox.getChildren().add(newButton("Zobraz strom", zobrazStrom()));
 
         Scene scene = new Scene(root);
         stage.setTitle("Václavík - AbstrTable");
@@ -58,6 +60,32 @@ public class ProgAgendaKraj extends Application {
         stage.setHeight(500);
         stage.setWidth(800);
         stage.show();
+    }
+
+    private EventHandler<ActionEvent> zobrazStrom() {
+        return EventHandler ->{
+          //TODO
+        };
+    }
+
+    private EventHandler<ActionEvent> najdi() {
+        return EventHandler -> {
+            try {
+                String nazev = dialogNazev();
+                if (nazev != null) {
+                    if (nazev.isEmpty()) {
+                        chybovaHlaska("Nezadán název obce");
+                        return;
+                    }
+                    Obec obec = kraj.najdi(nazev);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText(obec.toString());
+                    alert.showAndWait();
+                }
+            } catch (AgendaKrajException e) {
+                chybovaHlaska(e.getMessage());
+            }
+        };
     }
 
     private EventHandler<ActionEvent> odeber() {
