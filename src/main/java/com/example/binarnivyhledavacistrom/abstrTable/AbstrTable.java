@@ -254,7 +254,7 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
 
             @Override
             public boolean hasNext() {
-                return zobrazenyPocet <= pocet && !jePrazdny();
+                return zobrazenyPocet < pocet && !jePrazdny();
             }
 
             @Override

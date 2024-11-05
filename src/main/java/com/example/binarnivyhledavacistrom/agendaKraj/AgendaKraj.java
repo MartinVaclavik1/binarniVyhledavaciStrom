@@ -109,8 +109,8 @@ public class AgendaKraj implements IAgendaKraj {
     }
 
     @Override
-    public Iterator<Obec> vytvorIterator() {
-        return strom.vytvorIterator(eTypProhl.DO_HLOUBKY);
+    public Iterator<Obec> vytvorIterator(eTypProhl typProhlidky) {
+        return strom.vytvorIterator(typProhlidky);
     }
 
     @Override
