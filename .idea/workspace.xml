@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="prace na zobrazeni stromu">
+    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="zobrazení jedné levé části stromu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/progAgendaKraj/ProgAgendaKraj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/progAgendaKraj/ProgAgendaKraj.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +200,7 @@
       <workItem from="1730384256648" duration="7982000" />
       <workItem from="1730808468136" duration="4369000" />
       <workItem from="1730828512087" duration="11837000" />
-      <workItem from="1730879848045" duration="6579000" />
+      <workItem from="1730879848045" duration="7235000" />
     </task>
     <task id="LOCAL-00001" summary="inicializace">
       <option name="closed" value="true" />
@@ -491,15 +490,40 @@
       <option name="project" value="LOCAL" />
       <updated>1730881707730</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="odstranění zbytečného toString()">
+      <option name="closed" value="true" />
+      <created>1730908232871</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1730908232871</updated>
+    </task>
+    <task id="LOCAL-00038" summary="zobrazení jedné levé části stromu">
+      <option name="closed" value="true" />
+      <created>1730908347493</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1730908347493</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="upravení testů" />
-    <MESSAGE value="upravení testů - nejde mi (expected = AbstrTableException.class) aaaaa" />
     <MESSAGE value="iterator do šířky" />
     <MESSAGE value="iterator do hloubky" />
     <MESSAGE value="AbstrTable iterator testy" />
@@ -523,6 +547,8 @@
     <MESSAGE value="odeber" />
     <MESSAGE value="UI hotovo kromě zobrazení stromu" />
     <MESSAGE value="prace na zobrazeni stromu" />
-    <option name="LAST_COMMIT_MESSAGE" value="prace na zobrazeni stromu" />
+    <MESSAGE value="odstranění zbytečného toString()" />
+    <MESSAGE value="zobrazení jedné levé části stromu" />
+    <option name="LAST_COMMIT_MESSAGE" value="zobrazení jedné levé části stromu" />
   </component>
 </project>

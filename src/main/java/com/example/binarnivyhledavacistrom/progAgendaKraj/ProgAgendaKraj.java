@@ -14,6 +14,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.shape.Line;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -101,6 +102,9 @@ public class ProgAgendaKraj extends Application {
                 Label txt = new Label(itDoHloubky.next().getObec());
                 txt.relocate(pocet * 50 - i * 50, 20 + i * 50);
                 pane.getChildren().addAll(txt);
+                if(i != 0){
+                    pane.getChildren().add(new Line(pocet * 50 - i * 50 + 20, 20 + i * 50, pocet * 50 - (i - 1) * 50, 20 + (i - 1) * 50 + 20));
+                }
             }
 
             dialogStrom(pane);
