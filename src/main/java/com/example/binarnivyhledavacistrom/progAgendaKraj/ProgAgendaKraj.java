@@ -63,8 +63,40 @@ public class ProgAgendaKraj extends Application {
     }
 
     private EventHandler<ActionEvent> zobrazStrom() {
-        return EventHandler ->{
-          //TODO
+        return EventHandler -> {
+            //TODO
+            Obec koren = null;
+            int pocet = 0;
+            Obec nejmensi = null;
+            Iterator<Obec> itDoHloubky = kraj.vytvorIterator(eTypProhl.DO_HLOUBKY);
+            Iterator<Obec> itInOrder = kraj.vytvorIterator(eTypProhl.IN_ORDER);
+
+            if (itDoHloubky.hasNext()) {
+                koren = itDoHloubky.next();
+            }
+
+            if (koren == null) {
+                return;
+            }
+
+            if (itInOrder.hasNext()) {  //zjištění nejlevějšího bodu pro odsazení
+                nejmensi = itInOrder.next();
+            }
+
+            while (itDoHloubky.hasNext()) {  //zjištění počtu pro odsazení v UI
+                if (itDoHloubky.next() != nejmensi) {
+                    pocet++;
+                } else {
+                    break;
+                }
+            }
+
+            //TODO udělat metodu, která bude rekurzivně vkládat obce do UI a na konci se zobrazí.
+
+            System.out.println(koren);
+            System.out.println(nejmensi);
+            System.out.println(pocet);
+
         };
     }
 
