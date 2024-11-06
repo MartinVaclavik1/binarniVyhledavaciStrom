@@ -109,7 +109,7 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
                         aktualni = aktualni.synL;
                     }
                 } else {
-                    throw new AbstrTableException("prvek " + key.toString() + " již existuje v seznamu!!");
+                    throw new AbstrTableException("prvek " + key + " již existuje v seznamu!!");
                 }
             }
         }
