@@ -13,9 +13,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -64,7 +62,6 @@ public class ProgAgendaKraj extends Application {
 
     private EventHandler<ActionEvent> zobrazStrom() {
         return EventHandler -> {
-            //TODO
             Obec koren = null;
             int pocet = 0;
             Obec nejmensi = null;
@@ -73,31 +70,56 @@ public class ProgAgendaKraj extends Application {
 
             if (itDoHloubky.hasNext()) {
                 koren = itDoHloubky.next();
+                pocet++;
             }
 
             if (koren == null) {
                 return;
             }
 
-            if (itInOrder.hasNext()) {  //zjištění nejlevějšího bodu pro odsazení
+            if (itInOrder.hasNext()) {  //zjistění nejlevějšího bodu pro zjistění odsazení
                 nejmensi = itInOrder.next();
             }
 
-            while (itDoHloubky.hasNext()) {  //zjištění počtu pro odsazení v UI
+            while (itDoHloubky.hasNext()) {  //zjistění počtu pro odsazení v UI
                 if (itDoHloubky.next() != nejmensi) {
                     pocet++;
                 } else {
+                    pocet++;
                     break;
                 }
             }
+            //TODO vkládání podle pozice ve stromu
+            Pane pane = new Pane();
+            itDoHloubky = kraj.vytvorIterator(eTypProhl.DO_HLOUBKY);
 
-            //TODO udělat metodu, která bude rekurzivně vkládat obce do UI a na konci se zobrazí.
+//            Label text = new Label(koren.getObec());
+//            text.relocate(20 + pocet * 100, 20);
+//            pane.getChildren().addAll(text);
 
+            for (int i = 0; i < pocet; i++){    //zobrazení levé strany stromu
+                Label txt = new Label(itDoHloubky.next().getObec());
+                txt.relocate(pocet * 50 - i * 50, 20 + i * 50);
+                pane.getChildren().addAll(txt);
+            }
+
+            dialogStrom(pane);
             System.out.println(koren);
             System.out.println(nejmensi);
             System.out.println(pocet);
 
         };
+    }
+
+    private void dialogStrom(Pane pane) {
+//        Pane pane = new Pane();
+//        Label label = new Label("loool");
+//        label.relocate(23,34);
+//        pane.getChildren().addAll(label);
+        Dialog<Void> dialog = new Dialog<>();
+        dialog.getDialogPane().setContent(pane);
+        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK);
+        dialog.showAndWait();
     }
 
     private EventHandler<ActionEvent> najdi() {
