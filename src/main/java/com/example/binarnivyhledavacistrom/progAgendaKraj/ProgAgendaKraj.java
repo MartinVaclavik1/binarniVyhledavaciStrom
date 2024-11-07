@@ -1,7 +1,5 @@
 package com.example.binarnivyhledavacistrom.progAgendaKraj;
 
-import com.example.binarnivyhledavacistrom.FIFO.AbstrFIFO;
-import com.example.binarnivyhledavacistrom.FIFO.IAbstrFIFO;
 import com.example.binarnivyhledavacistrom.Obec;
 import com.example.binarnivyhledavacistrom.abstrTable.AbstrTable.Prvek;
 import com.example.binarnivyhledavacistrom.agendaKraj.AgendaKraj;
@@ -32,7 +30,6 @@ public class ProgAgendaKraj extends Application {
     private final String nazevSouboru = "zaloha.bin";
     private IAgendaKraj kraj = new AgendaKraj();
     private final Pane pane = new Pane();
-    private final IAbstrFIFO<String> fifo = new AbstrFIFO<>();
 
     public static void main(String[] args) {
         launch(args);
@@ -372,28 +369,6 @@ public class ProgAgendaKraj extends Application {
         } catch (AgendaKrajException x) {
             chybovaHlaska(x.getMessage());
         }
-    }
-
-    //prvek vetsi = -1, prvek mensi = 1, prvek stejny = 0
-    public int compareTo(String aktualni, String prvek) {
-
-        char[] aktualniChar = aktualni.toCharArray();
-        char[] prvekChar = prvek.toCharArray();
-        int pocetOpakovani = Math.min(aktualniChar.length, prvekChar.length);
-        int mensi = -1;
-        int vetsi = 1;
-
-
-        for (int i = 0; i < pocetOpakovani; i++) {
-            //větší než aktuální
-            if (aktualniChar[i] < prvekChar[i]) {
-                return mensi;
-                //menší, než aktuální
-            } else if (aktualniChar[i] > prvekChar[i]) {
-                return vetsi;
-            }
-        }
-        return Integer.compare(prvekChar.length, aktualniChar.length);
     }
 
     private void aktualizujListView() {
