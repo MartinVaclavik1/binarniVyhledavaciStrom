@@ -1,6 +1,9 @@
 package com.example.binarnivyhledavacistrom.progAgendaKraj;
 
+import com.example.binarnivyhledavacistrom.FIFO.AbstrFIFO;
+import com.example.binarnivyhledavacistrom.FIFO.IAbstrFIFO;
 import com.example.binarnivyhledavacistrom.Obec;
+import com.example.binarnivyhledavacistrom.abstrTable.AbstrTable.Prvek;
 import com.example.binarnivyhledavacistrom.agendaKraj.AgendaKraj;
 import com.example.binarnivyhledavacistrom.agendaKraj.AgendaKrajException;
 import com.example.binarnivyhledavacistrom.agendaKraj.IAgendaKraj;
@@ -15,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.shape.Line;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -27,6 +31,8 @@ public class ProgAgendaKraj extends Application {
     private final ListView<String> listView = new ListView<>(observableList);
     private final String nazevSouboru = "zaloha.bin";
     private IAgendaKraj kraj = new AgendaKraj();
+    private final Pane pane = new Pane();
+    private final IAbstrFIFO<String> fifo = new AbstrFIFO<>();
 
     public static void main(String[] args) {
         launch(args);
@@ -34,6 +40,7 @@ public class ProgAgendaKraj extends Application {
 
     @Override
     public void start(Stage stage) {
+        pane.setPrefSize(1500, 700);
         listView.setFocusTraversable(false);
         BorderPane root = new BorderPane();
         VBox vBox = new VBox();
@@ -51,7 +58,7 @@ public class ProgAgendaKraj extends Application {
         vBox.getChildren().add(newButton("odeber", odeber()));
         vBox.getChildren().add(newButton("vybuduj", vybuduj()));
         vBox.getChildren().add(newButton("aktualizuj", aktualizuj()));
-        vBox.getChildren().add(newButton("Zobraz strom", zobrazStrom()));
+        vBox.getChildren().add(newButton("Zobraz strom", vizualizujStrom()));
 
         Scene scene = new Scene(root);
         stage.setTitle("Václavík - AbstrTable");
@@ -60,66 +67,50 @@ public class ProgAgendaKraj extends Application {
         stage.setWidth(800);
         stage.show();
     }
-
-    private EventHandler<ActionEvent> zobrazStrom() {
+    public EventHandler<ActionEvent> vizualizujStrom() {
         return EventHandler -> {
-            Obec koren = null;
-            int pocet = 0;
-            Obec nejmensi = null;
-            Iterator<Obec> itDoHloubky = kraj.vytvorIterator(eTypProhl.DO_HLOUBKY);
-            Iterator<Obec> itInOrder = kraj.vytvorIterator(eTypProhl.IN_ORDER);
+            pane.getChildren().clear();
 
-            if (itDoHloubky.hasNext()) {
-                koren = itDoHloubky.next();
-                pocet++;
-            }
+            double startX = pane.getPrefWidth() / 2;
+            double startY = 30;
+            double mezera = pane.getPrefWidth() / 4;
+            Prvek<String, Obec> koren = kraj.getKoren();
 
-            if (koren == null) {
-                return;
-            }
-
-            if (itInOrder.hasNext()) {  //zjistění nejlevějšího bodu pro zjistění odsazení
-                nejmensi = itInOrder.next();
-            }
-
-            while (itDoHloubky.hasNext()) {  //zjistění počtu pro odsazení v UI
-                if (itDoHloubky.next() != nejmensi) {
-                    pocet++;
-                } else {
-                    pocet++;
-                    break;
-                }
-            }
-            //TODO vkládání podle pozice ve stromu
-            Pane pane = new Pane();
-            itDoHloubky = kraj.vytvorIterator(eTypProhl.DO_HLOUBKY);
-
-//            Label text = new Label(koren.getObec());
-//            text.relocate(20 + pocet * 100, 20);
-//            pane.getChildren().addAll(text);
-
-            for (int i = 0; i < pocet; i++){    //zobrazení levé strany stromu
-                Label txt = new Label(itDoHloubky.next().getObec());
-                txt.relocate(pocet * 50 - i * 50, 20 + i * 50);
-                pane.getChildren().addAll(txt);
-                if(i != 0){
-                    pane.getChildren().add(new Line(pocet * 50 - i * 50 + 20, 20 + i * 50, pocet * 50 - (i - 1) * 50, 20 + (i - 1) * 50 + 20));
-                }
-            }
-
-            dialogStrom(pane);
-            System.out.println(koren);
-            System.out.println(nejmensi);
-            System.out.println(pocet);
-
+            vizualizujPrvek(koren, startX, startY, mezera);
+            dialogStrom();
         };
     }
 
-    private void dialogStrom(Pane pane) {
-//        Pane pane = new Pane();
-//        Label label = new Label("loool");
-//        label.relocate(23,34);
-//        pane.getChildren().addAll(label);
+    private void vizualizujPrvek(Prvek<String, Obec> prvek, double x, double y, double mezera) {
+        if (prvek == null) {
+            return;
+        }
+
+        Text text = new Text(String.valueOf(prvek.getKey()));
+        int odchylka = prvek.getKey().length()/2 * 5;
+        text.setX(x - odchylka);
+        text.setY(y + 5);
+
+        pane.getChildren().add(text);
+
+        double dalsiY = y + 50;
+        double levyX = x - mezera;
+        double pravyX = x + mezera;
+
+        // Vykreslí čáry k potomkům a pak zavolá sám sebe
+        if (prvek.getSynL() != null) {
+            Line leftLine = new Line(x, y + 15, levyX, dalsiY - 15);
+            pane.getChildren().add(leftLine);
+            vizualizujPrvek(prvek.getSynL(), levyX, dalsiY, mezera / 2);
+        }
+
+        if (prvek.getSynP() != null) {
+            Line rightLine = new Line(x, y + 15, pravyX, dalsiY - 15);
+            pane.getChildren().add(rightLine);
+            vizualizujPrvek(prvek.getSynP(), pravyX, dalsiY, mezera / 2);
+        }
+    }
+    private void dialogStrom() {
         Dialog<Void> dialog = new Dialog<>();
         dialog.getDialogPane().setContent(pane);
         dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK);
@@ -381,6 +372,28 @@ public class ProgAgendaKraj extends Application {
         } catch (AgendaKrajException x) {
             chybovaHlaska(x.getMessage());
         }
+    }
+
+    //prvek vetsi = -1, prvek mensi = 1, prvek stejny = 0
+    public int compareTo(String aktualni, String prvek) {
+
+        char[] aktualniChar = aktualni.toCharArray();
+        char[] prvekChar = prvek.toCharArray();
+        int pocetOpakovani = Math.min(aktualniChar.length, prvekChar.length);
+        int mensi = -1;
+        int vetsi = 1;
+
+
+        for (int i = 0; i < pocetOpakovani; i++) {
+            //větší než aktuální
+            if (aktualniChar[i] < prvekChar[i]) {
+                return mensi;
+                //menší, než aktuální
+            } else if (aktualniChar[i] > prvekChar[i]) {
+                return vetsi;
+            }
+        }
+        return Integer.compare(prvekChar.length, aktualniChar.length);
     }
 
     private void aktualizujListView() {

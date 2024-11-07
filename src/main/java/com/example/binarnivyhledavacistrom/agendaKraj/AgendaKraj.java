@@ -132,4 +132,8 @@ public class AgendaKraj implements IAgendaKraj {
             vloz(new Obec(psc, nazev.toString(), pocetM, pocetZ));
         }
     }
+
+    public AbstrTable.Prvek<String,Obec> getKoren(){
+        return strom.getKoren();
+    }
 }

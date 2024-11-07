@@ -12,4 +12,5 @@ public interface IAbstrTable<K,V> extends Comparable<K> {
     V odeber(K key) throws AbstrTableException;
     Iterator<V> vytvorIterator(eTypProhl typ);
     int getPocet();
+    AbstrTable.Prvek<K, V> getKoren();
 }

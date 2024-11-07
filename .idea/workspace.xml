@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="zobrazení jedné levé části stromu">
+    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="zobrazení čar u levé části stromu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/IAbstrTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/IAbstrTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/agendaKraj/AgendaKraj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/agendaKraj/AgendaKraj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/agendaKraj/IAgendaKraj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/agendaKraj/IAgendaKraj.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/progAgendaKraj/ProgAgendaKraj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/progAgendaKraj/ProgAgendaKraj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +205,8 @@
       <workItem from="1730384256648" duration="7982000" />
       <workItem from="1730808468136" duration="4369000" />
       <workItem from="1730828512087" duration="11837000" />
-      <workItem from="1730879848045" duration="7235000" />
+      <workItem from="1730879848045" duration="21839000" />
+      <workItem from="1730975415112" duration="1981000" />
     </task>
     <task id="LOCAL-00001" summary="inicializace">
       <option name="closed" value="true" />
@@ -506,7 +512,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730908347493</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="zobrazení čar u levé části stromu">
+      <option name="closed" value="true" />
+      <created>1730908926404</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1730908926404</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -524,7 +538,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="iterator do šířky" />
     <MESSAGE value="iterator do hloubky" />
     <MESSAGE value="AbstrTable iterator testy" />
     <MESSAGE value="informace jak dělat odebírání" />
@@ -549,6 +562,7 @@
     <MESSAGE value="prace na zobrazeni stromu" />
     <MESSAGE value="odstranění zbytečného toString()" />
     <MESSAGE value="zobrazení jedné levé části stromu" />
-    <option name="LAST_COMMIT_MESSAGE" value="zobrazení jedné levé části stromu" />
+    <MESSAGE value="zobrazení čar u levé části stromu" />
+    <option name="LAST_COMMIT_MESSAGE" value="zobrazení čar u levé části stromu" />
   </component>
 </project>

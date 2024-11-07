@@ -15,7 +15,11 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
     private Prvek<K, V> aktualni;
     private int pocet = 0;
 
-    private static class Prvek<K, V> {
+    public Prvek<K, V> getKoren() {
+        return koren;
+    }
+
+    public static class Prvek<K, V> {
         private Prvek<K, V> rodic;
         private final K key;
         private final V value;
@@ -28,6 +32,18 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
             this.value = value;
             this.synL = synL;
             this.synP = synP;
+        }
+
+        public Prvek<K, V> getSynL() {
+            return synL;
+        }
+
+        public Prvek<K, V> getSynP() {
+            return synP;
+        }
+
+        public K getKey() {
+            return key;
         }
     }
 

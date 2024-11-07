@@ -1,6 +1,7 @@
 module com.example.binarnivyhledavacistrom {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.graphics;
 
 
     opens com.example.binarnivyhledavacistrom.abstrDoubleList to javafx.fxml;
