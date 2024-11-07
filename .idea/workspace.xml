@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="úpravy pro zobrazení stromu na pane">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/progAgendaKraj/ProgAgendaKraj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/progAgendaKraj/ProgAgendaKraj.java" afterDir="false" />
+    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="smazání přebytečných věcí">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/agendaKraj/IAgendaKraj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/agendaKraj/IAgendaKraj.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +200,7 @@
       <workItem from="1730808468136" duration="4369000" />
       <workItem from="1730828512087" duration="11837000" />
       <workItem from="1730879848045" duration="21839000" />
-      <workItem from="1730975415112" duration="2048000" />
+      <workItem from="1730975415112" duration="2081000" />
     </task>
     <task id="LOCAL-00001" summary="inicializace">
       <option name="closed" value="true" />
@@ -523,7 +522,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730977988503</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="smazání přebytečných věcí">
+      <option name="closed" value="true" />
+      <created>1730978032725</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1730978032725</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,7 +548,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="AbstrTable iterator testy" />
     <MESSAGE value="informace jak dělat odebírání" />
     <MESSAGE value="odebírání prvku - polovina hotova" />
     <MESSAGE value="hotové odebírání? - otestovat více" />
@@ -566,6 +572,7 @@
     <MESSAGE value="zobrazení jedné levé části stromu" />
     <MESSAGE value="zobrazení čar u levé části stromu" />
     <MESSAGE value="úpravy pro zobrazení stromu na pane" />
-    <option name="LAST_COMMIT_MESSAGE" value="úpravy pro zobrazení stromu na pane" />
+    <MESSAGE value="smazání přebytečných věcí" />
+    <option name="LAST_COMMIT_MESSAGE" value="smazání přebytečných věcí" />
   </component>
 </project>

@@ -13,5 +13,5 @@ public interface IAgendaKraj {
     void vybuduj() throws AgendaKrajException;
     Iterator<Obec> vytvorIterator(eTypProhl typProhlidky);
     void generuj() throws AgendaKrajException;
-    public AbstrTable.Prvek<String,Obec> getKoren();
+    AbstrTable.Prvek<String,Obec> getKoren();
 }
