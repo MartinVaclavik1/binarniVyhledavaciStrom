@@ -155,6 +155,7 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
             Prvek<K, V> nejblizsiNejvetsi = aktualni.synP;
             Prvek<K, V> nastupce = null;
 
+            //může mít potomka co je vlevo
             if (nejblizsiNejmensi != null) {
                 while (nejblizsiNejmensi.synP != null) {
                     nejblizsiNejmensi = nejblizsiNejmensi.synP;
@@ -162,6 +163,7 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
                 nastupce = nejblizsiNejmensi;
             }
 
+            //může mít potomka, co je vpravo
             if (nejblizsiNejvetsi != null) {
                 while (nejblizsiNejvetsi.synL != null) {
                     nejblizsiNejvetsi = nejblizsiNejvetsi.synL;
@@ -169,6 +171,7 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
                 nastupce = nejblizsiNejvetsi;
             }
 
+            //když oba existují, tak se jako nástupce nastaví buď nejblizsiNejmensi, nebo zůsatne nastavený největší
             if (nejblizsiNejvetsi != null && nejblizsiNejmensi != null) {
                 if (rozdilPrvku(aktualni, nejblizsiNejmensi) < rozdilPrvku(aktualni, nejblizsiNejvetsi)) {
                     nastupce = nejblizsiNejmensi;
@@ -181,24 +184,16 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
                     if (nastupce.rodic != aktualni) {
                         nastupce.rodic.synP = nastupce.synL;
                         nastupce.synL.rodic = nastupce.rodic;
-                        nastupce.synL = aktualni.synL;
                     }
-                    nastupce.synP = aktualni.synP;
-
                 }
             } else {
                 if (nastupce.synP != null) {
                     if (nastupce.rodic != aktualni) {
                         nastupce.rodic.synL = nastupce.synP;
                         nastupce.synP.rodic = nastupce.rodic;
-                        nastupce.synP = aktualni.synP;
                     }
-                    nastupce.synL = aktualni.synL;
-
                 }
             }
-
-
             //zjištění jaký syn je v rodiči pomocí comparatoru
             if (aktualni != koren) {
                 switch (compareTo(aktualni.rodic.key)) {
@@ -248,7 +243,7 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
     private Integer rozdilPrvku(Prvek<K, V> prvek1, Prvek<K, V> prvek2) throws AbstrTableException {
 
         char[] prvek1Char = prvek1.key.toString().toCharArray();
-        char[] prvek2Char = prvek2.toString().toCharArray();
+        char[] prvek2Char = prvek2.key.toString().toCharArray();
         int pocetOpakovani = Math.min(prvek1Char.length, prvek2Char.length);
 
         for (int i = 0; i < pocetOpakovani; i++) {
