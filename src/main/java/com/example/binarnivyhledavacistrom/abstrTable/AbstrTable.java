@@ -9,7 +9,7 @@ import com.example.binarnivyhledavacistrom.enumy.eTypProhl;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class AbstrTable<K, V> implements IAbstrTable<K, V> {
+public class AbstrTable<K extends Comparable<K>, V> implements IAbstrTable<K, V> {
 
     private Prvek<K, V> koren;
     private Prvek<K, V> aktualni;
@@ -67,7 +67,8 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
         }
         aktualni = koren;
         while (true) {
-            int comparator = compareTo(key);
+
+            int comparator = aktualni.getKey().compareTo(key);
             if (comparator < 0) {
 
                 if (aktualni.synP == null) {
@@ -103,7 +104,7 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
             aktualni = koren;
 
             while (true) {
-                int comparator = compareTo(novyPrvek.key);
+                int comparator = aktualni.key.compareTo(novyPrvek.key);
                 if (comparator < 0) {
 
                     if (aktualni.synP == null) {
@@ -173,7 +174,7 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
 
             //když oba existují, tak se jako nástupce nastaví buď nejblizsiNejmensi, nebo zůsatne nastavený největší
             if (nejblizsiNejvetsi != null && nejblizsiNejmensi != null) {
-                if (rozdilPrvku(aktualni, nejblizsiNejmensi) < rozdilPrvku(aktualni, nejblizsiNejvetsi)) {
+                if (rozdilPrvku(aktualni, nejblizsiNejmensi, nejblizsiNejvetsi) < 0) {
                     nastupce = nejblizsiNejmensi;
                 }
             }
@@ -182,21 +183,23 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
             if (nastupce == nejblizsiNejmensi) {
                 if (nastupce.synL != null) {
                     if (nastupce.rodic != aktualni) {
-                        nastupce.rodic.synP = nastupce.synL;
                         nastupce.synL.rodic = nastupce.rodic;
                     }
                 }
+                nastupce.rodic.synP = nastupce.synL;
+
             } else {
                 if (nastupce.synP != null) {
                     if (nastupce.rodic != aktualni) {
-                        nastupce.rodic.synL = nastupce.synP;
                         nastupce.synP.rodic = nastupce.rodic;
                     }
                 }
+                nastupce.rodic.synL = nastupce.synP;
+
             }
             //zjištění jaký syn je v rodiči pomocí comparatoru
             if (aktualni != koren) {
-                switch (compareTo(aktualni.rodic.key)) {
+                switch (aktualni.key.compareTo(aktualni.rodic.key)) {
                     //pravý (aktuální [odebraný] je větší, než rodič)
                     case 1 -> aktualni.rodic.synP = nastupce;
                     //levý (aktuální [odebraný] je menší, než rodič)
@@ -239,17 +242,21 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
         return value;
     }
 
-    //vrátí číslo, jaký je rozdíl mezi prvkem1 a prvkem2 v absolutní hodnotě
-    private Integer rozdilPrvku(Prvek<K, V> prvek1, Prvek<K, V> prvek2) throws AbstrTableException {
+    //vrátí číslo, prvek 2 bliz = -1
+    private Integer rozdilPrvku(Prvek<K, V> prvek1, Prvek<K, V> prvek2, Prvek<K, V> prvek3) throws AbstrTableException {
 
         char[] prvek1Char = prvek1.key.toString().toCharArray();
         char[] prvek2Char = prvek2.key.toString().toCharArray();
-        int pocetOpakovani = Math.min(prvek1Char.length, prvek2Char.length);
+        char[] prvek3Char = prvek3.key.toString().toCharArray();
+        int pocetOpakovani = Math.min(Math.min(prvek1Char.length, prvek2Char.length), prvek3Char.length);
 
         for (int i = 0; i < pocetOpakovani; i++) {
-            if (prvek1Char[i] != prvek2Char[i]) {
-                return Math.abs(prvek1Char[i] - prvek2Char[i]);
+            if (prvek2Char[i] != prvek3Char[i]) {
+                return Math.abs(prvek1Char[i] - prvek2Char[i]) < Math.abs(prvek1Char[i] - prvek3Char[i]) ? -1 : 1;
             }
+        }
+        if (prvek2Char.length != prvek3Char.length) {
+            return prvek2Char.length < prvek3Char.length ? -1 : 1;
         }
 
         throw new AbstrTableException("Chyba při odečítání prvků");
@@ -347,29 +354,6 @@ public class AbstrTable<K, V> implements IAbstrTable<K, V> {
         };
     }
 
-    //prvek vetsi = -1, prvek mensi = 1, prvek stejny = 0
-    @Override
-    public int compareTo(K prvek) {
-
-        char[] aktualniChar = this.aktualni.key.toString().toCharArray();
-        char[] prvekChar = prvek.toString().toCharArray();
-        int pocetOpakovani = Math.min(aktualniChar.length, prvekChar.length);
-        int mensi = -1;
-        int vetsi = 1;
-
-        //porovnává aktuální nastavený a prvek charakter po charakteru. Když jsou stejné, vrátí 0.
-        // Když je prvek větší vrátí -1 a když je aktuální větší, vrátí 1
-        for (int i = 0; i < pocetOpakovani; i++) {
-            //větší než aktuální
-            if (aktualniChar[i] < prvekChar[i]) {
-                return mensi;
-                //menší, než aktuální
-            } else if (aktualniChar[i] > prvekChar[i]) {
-                return vetsi;
-            }
-        }
-        return Integer.compare(prvekChar.length, aktualniChar.length);
-    }
 
     public int getPocet() {
         return pocet;

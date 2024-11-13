@@ -4,7 +4,7 @@ import com.example.binarnivyhledavacistrom.enumy.eTypProhl;
 
 import java.util.Iterator;
 
-public interface IAbstrTable<K,V> extends Comparable<K> {
+public interface IAbstrTable<K extends Comparable<K> ,V>  {
     void zrus();
     boolean jePrazdny();
     V najdi(K key) throws AbstrTableException;

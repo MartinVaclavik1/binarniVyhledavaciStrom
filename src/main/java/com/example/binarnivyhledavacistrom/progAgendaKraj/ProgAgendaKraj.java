@@ -30,6 +30,7 @@ public class ProgAgendaKraj extends Application {
     private final String nazevSouboru = "zaloha.bin";
     private IAgendaKraj kraj = new AgendaKraj();
     private final Pane pane = new Pane();
+    private final ChoiceBox<eTypProhl> choiceBox = new ChoiceBox<>();
 
     public static void main(String[] args) {
         launch(args);
@@ -37,6 +38,11 @@ public class ProgAgendaKraj extends Application {
 
     @Override
     public void start(Stage stage) {
+
+        choiceBox.getItems().addAll(eTypProhl.DO_HLOUBKY, eTypProhl.DO_SIRKY, eTypProhl.IN_ORDER);
+        choiceBox.setPrefWidth(150);
+        choiceBox.getSelectionModel().selectFirst();
+
         pane.setPrefSize(1500, 700);
         listView.setFocusTraversable(false);
         BorderPane root = new BorderPane();
@@ -56,7 +62,7 @@ public class ProgAgendaKraj extends Application {
         vBox.getChildren().add(newButton("vybuduj", vybuduj()));
         vBox.getChildren().add(newButton("aktualizuj", aktualizuj()));
         vBox.getChildren().add(newButton("Zobraz strom", vizualizujStrom()));
-
+        vBox.getChildren().add(choiceBox);
         Scene scene = new Scene(root);
         stage.setTitle("Václavík - AbstrTable");
         stage.setScene(scene);
@@ -82,7 +88,6 @@ public class ProgAgendaKraj extends Application {
         if (prvek == null) {
             return;
         }
-
         Text text = new Text(String.valueOf(prvek.getKey()));
         int odchylka = prvek.getKey().length()/2 * 5;
         text.setX(x - odchylka);
@@ -98,12 +103,14 @@ public class ProgAgendaKraj extends Application {
         if (prvek.getSynL() != null) {
             Line leftLine = new Line(x, y + 15, levyX, dalsiY - 15);
             pane.getChildren().add(leftLine);
+//            System.out.println("Prvek " + prvek.getKey() + " má L potomka " + prvek.getSynL().getKey());
             vizualizujPrvek(prvek.getSynL(), levyX, dalsiY, mezera / 2);
         }
 
         if (prvek.getSynP() != null) {
             Line rightLine = new Line(x, y + 15, pravyX, dalsiY - 15);
             pane.getChildren().add(rightLine);
+//            System.out.println("Prvek " + prvek.getKey() + " má P potomka " + prvek.getSynP().getKey());
             vizualizujPrvek(prvek.getSynP(), pravyX, dalsiY, mezera / 2);
         }
     }
@@ -375,7 +382,7 @@ public class ProgAgendaKraj extends Application {
 
         observableList.clear();
 
-        Iterator<Obec> iterator = kraj.vytvorIterator(eTypProhl.DO_HLOUBKY);
+        Iterator<Obec> iterator = kraj.vytvorIterator(choiceBox.getValue());
         while (iterator.hasNext()) {
             observableList.addAll(iterator.next().toString());
         }

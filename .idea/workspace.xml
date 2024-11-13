@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="smazání public, když tam nemusí být">
+    <list default="true" id="87a19518-bedf-4663-bcc6-b0e8e40d6b3b" name="Changes" comment="oprava chyby v porovnávání blízkosti k odebranému">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/IAbstrTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/IAbstrTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/progAgendaKraj/ProgAgendaKraj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/progAgendaKraj/ProgAgendaKraj.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +205,7 @@
       <workItem from="1730879848045" duration="21839000" />
       <workItem from="1730975415112" duration="2258000" />
       <workItem from="1731317168748" duration="1842000" />
-      <workItem from="1731505295256" duration="3885000" />
+      <workItem from="1731505295256" duration="13754000" />
     </task>
     <task id="LOCAL-00001" summary="inicializace">
       <option name="closed" value="true" />
@@ -541,7 +543,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730978090579</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="oprava chyby v porovnávání blízkosti k odebranému">
+      <option name="closed" value="true" />
+      <created>1731509531425</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1731509531425</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,7 +569,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="odebírání prvku - polovina hotova" />
     <MESSAGE value="hotové odebírání? - otestovat více" />
     <MESSAGE value="hotové odebírání" />
     <MESSAGE value="in irder iterator (rozhodně ne zkopírovaný z netu )" />
@@ -584,16 +593,16 @@
     <MESSAGE value="úpravy pro zobrazení stromu na pane" />
     <MESSAGE value="smazání přebytečných věcí" />
     <MESSAGE value="smazání public, když tam nemusí být" />
-    <option name="LAST_COMMIT_MESSAGE" value="smazání public, když tam nemusí být" />
+    <MESSAGE value="oprava chyby v porovnávání blízkosti k odebranému" />
+    <option name="LAST_COMMIT_MESSAGE" value="oprava chyby v porovnávání blízkosti k odebranému" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/binarnivyhledavacistrom/abstrTable/AbstrTable.java</url>
-          <line>144</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
+        <breakpoint type="java-exception">
+          <properties class="java.lang.StackOverflowError" package="java.lang" />
+          <option name="timeStamp" value="5" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
